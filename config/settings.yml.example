@@ -1,0 +1,30 @@
+app:
+  secret:       SECRET
+
+errors:
+  key:          KEY
+  url:          http://errors.openteam.ru
+
+cms:
+  url:          http://cms.site.url
+  site_slug:    site
+
+storage:
+  url:          http://storage.url
+
+solr:
+  url:          http://localhost:8982/solr
+
+mail:
+  domain:       example.com
+  login:        user@example
+  password:     SECRET
+  smtp:         smtp.example.com
+  port:         22
+  to:           client@example.com
+  from:         server@example.com
+
+recaptcha:
+  public:       KEY
+  private:      KEY
+
