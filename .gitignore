@@ -1,0 +1,7 @@
+/.bundle
+/.sass-cache
+/bin
+/config/settings.yml
+/log/*.log
+/public/assets
+/tmp
