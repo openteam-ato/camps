@@ -59,10 +59,6 @@ GEM
       multi_json (>= 1.1)
     curb (0.8.3)
     daemons (1.1.9)
-    el_vfs_client (0.4.1)
-      configliere
-      curb
-      rails
     erubis (2.7.0)
     esp-commons (0.5.3)
       active_attr
@@ -84,9 +80,6 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.7.6)
-    kaminari (0.14.1)
-      actionpack (>= 3.0.0)
-      activesupport (>= 3.0.0)
     kgio (2.8.0)
     mail (2.4.4)
       i18n (>= 0.4.0)
@@ -127,8 +120,6 @@ GEM
     rake (10.0.3)
     rdoc (3.12)
       json (~> 1.4)
-    russian (0.6.0)
-      i18n (>= 0.5.0)
     sass (3.2.5)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -162,14 +153,11 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails
   curb
-  el_vfs_client
   esp-commons
   hashie
   jquery-rails
-  kaminari
   openteam-commons
   rails
-  russian
   sass-rails
   uglifier
   unicorn

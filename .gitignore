@@ -5,3 +5,4 @@
 /log/*.log
 /public/assets
 /tmp
+*.swp
