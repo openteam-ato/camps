@@ -14,7 +14,7 @@
         <div class='wrapper'>
           <div class="logo">
             <div class="tgr_logo" title='Администрация Томской области'>Администрация Томской области</div>
-            <h1><a href="/" title='Детский отдых в Томской области'>Детский отдых в Томской области</a></h1>
+            <h1><a href="/" title='<%= @site_name.content.body %>'><%= @site_name.content.body %></a></h1>
           </div>
         </div>
       </div>
@@ -23,37 +23,18 @@
     <div class="content">
       <div class="left_side">
         <ul>
-          <li>
-            <h3 class='green'>Детские лагеря</h3>
-            <ul>
-              <li><a href='#'>Загородные оздоровительные лагеря</a></li>
-              <li><a href='#'>Родителям</a></li>
-              <li><a href='#'>Детям</a></li>
-            </ul>
-          </li>
-          <li>
-            <h3 class='blue'>Детские санатории</h3>
-            <ul>
-              <li><a href='#'>Детские санаторные лагеря</a></li>
-              <li><a href='#'>Родителям</a></li>
-              <li><a href='#'>Детям</a></li>
-            </ul>
-          </li>
-          <li>
-            <h3 class='green'>Педагогам и организаторам</h3>
-            <ul>
-              <li><a href='#'>Вожатым</a></li>
-              <li><a href='#'>Организаторам</a></li>
-              <li><a href='#'>Работа в лагере</a></li>
-              <li><a href='#'>Резюме</a></li>
-            </ul>
-          </li>
-          <li>
-            <h3 class='yellow'>Документы</h3>
-            <ul>
-              <li><a href='#'>Нормативные документы</a></li>
-            </ul>
-          </li>
+          <% index = 1%>
+          <% @main_navigation.content.ru.children.each do |slug, hash| %>
+            <li>
+              <h3 class='<%= index.odd? ? 'green' : ( index == 2 ? 'blue' : 'yellow' ) %>'><%= hash.title %></h3>
+              <ul>
+                <% hash.children.each do |slug, item| %>
+                  <li><%= link_to item.title, item.path %></li>
+                <% end if hash.has_key?(:children)%>
+              </ul>
+            </li>
+            <% index += 1 %>
+          <% end %>
         </ul>
 
         <a class="ask_a_question" href='#'>Задать вопрос</a>
