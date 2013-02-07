@@ -6,3 +6,4 @@
 /public/assets
 /tmp
 *.swp
+.DS_Store

@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 
 group :assets do
   gem 'coffee-rails'
+  gem 'compass-rails'
   gem 'sass-rails'
   gem 'uglifier'
 end

@@ -47,6 +47,7 @@ GEM
     builder (3.0.4)
     bunny (0.8.0)
     chronic (0.9.0)
+    chunky_png (1.2.7)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -54,6 +55,12 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.4.0)
+    compass (0.12.2)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
+    compass-rails (1.0.3)
+      compass (>= 0.12.2, < 0.14)
     configliere (0.4.18)
       highline (>= 1.5.2)
       multi_json (>= 1.1)
@@ -71,6 +78,7 @@ GEM
     eventmachine (1.0.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    fssm (0.2.10)
     hashie (1.2.0)
     highline (1.6.15)
     hike (1.2.1)
@@ -152,6 +160,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails
+  compass-rails
   curb
   esp-commons
   hashie

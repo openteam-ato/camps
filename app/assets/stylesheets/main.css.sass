@@ -1,0 +1,236 @@
+@import 'compass/reset'
+@import 'compass/utilities'
+@import 'compass/css3'
+
+html
+  font-size: 12px
+
+body
+  +min-width(960px)
+  background: #f4f9ff
+  font-family: 'Trebuchet MS', Verdana, Tahoma, sans-serif
+  font-size: 1em
+  line-height: 1.62em
+
+.header
+  @include background-image(linear-gradient(#a4cffc, #f4f9ff))
+
+
+
+  .sub_wrapper
+    background: image_url('header_lbg.png') no-repeat left
+
+  .wrapper
+    background: image_url('header_rbg.png') no-repeat right
+    height: 190px
+    padding: 20px 78px
+
+  .logo
+    .tgr_logo
+      +clearfix
+      background: image_url('ato_logo.png') no-repeat
+      display: block
+      height: 70px
+      margin: 0 0 15px 0
+      text-indent: -9999px
+      width: 70px
+
+    h1
+      a
+        +clearfix
+        display: block
+        background: image_url('logo.png') no-repeat
+        height: 70px
+        text-indent: -9999px
+        width: 298 px
+
+.content
+  +clearfix
+  padding: 20px 60px
+
+  .left_side
+    +clearfix
+    float: left
+    padding: 12px 18px
+    width: 198px
+
+    .ask_a_question
+      +clearfix
+      background: image_url('ask_a_question.png') no-repeat
+      display: block
+      height: 42px
+      margin: 10px 0 0 0
+      text-indent: -9999px
+      width: 199px
+
+    ul
+      +border-radius(5px)
+      border: 1px solid #dce6f2
+
+      li
+        h3
+          +min-height(20px)
+          +single-text-shadow(1px, 1px, 0, false, #777)
+          border-bottom: 1px solid #f1f6fb
+          color: #fdfaff
+          font-size: 1.3em
+          padding: 5px 0
+          text-align: center
+
+          &.green
+            @include background-image(linear-gradient(#b5de22, #87c502))
+
+          &.blue
+            @include background-image(linear-gradient(#36a9e8, #017cc2))
+
+          &.yellow
+            @include background-image(linear-gradient(#fff11e, #fed001))
+
+        ul
+          +border-radius(none)
+          border: none
+
+          li
+            background: #ffffff
+            border-bottom: 1px solid #f1f6fb
+            font-size: 1em
+
+            a
+              display: block
+              color: #818181
+              text-decoration: none
+              padding: 8px 15px
+
+              &:hover
+                background: #f4f9ff
+                color: #004770
+
+  .right_side
+    +clearfix
+    padding: 12px 18px 22px 0
+
+    .main_content
+      .actual, .news_list, .chapter
+        +border-radius(5px)
+        background: #ffffff
+        border: 1px solid #dce6f2
+        font-size: 1.1em
+        margin: 0 0 15px 0
+        padding: 15px
+
+        h3
+          color: #7BC900
+          font-size: 1.8em
+          font-weight: bold
+          margin: 0 0 15px 0
+
+        a
+          color: #005FAB
+
+          &:hover
+            text-decoration: none
+
+          &:active
+            color: #018eff
+
+      .actual, .chapter
+        ul
+          li
+            &:before
+              color: #7BC900
+              content: '•'
+              margin: 0 6px 0 0
+
+      .news_list
+        li
+          margin: 0 0 20px 0
+
+        .date
+          color: #818181
+          font-size: 0.8em
+
+        .title
+          font-weight: bold
+
+        .desc
+          font-style: italic
+
+
+.footer
+  a
+    color: #005FAB
+
+    &:hover
+      text-decoration: none
+
+    &:active
+      color: #018eff
+
+  .top
+    background: image_url('footer_top_bg.png') repeat-x bottom left
+    height: 159px
+
+    .useful_links
+      background: image_url('footer_top_lbg.png') no-repeat 0 0
+      height: 114px
+      padding: 45px 0 0 0
+
+      h4
+        +single-text-shadow(1px, 1px, 0, false, #777)
+        color: #fdfaff
+        font-size: 1.3em
+        margin: 0 0 8px 310px
+        padding: 5px 0
+
+      ul
+        +clearfix
+        margin: 0 0 0 310px
+
+        li
+          float: left
+          margin: 0 10px 0 0
+          width: 220px
+
+          &:before
+            color: #7BC900
+            content: '•'
+            margin: 0 6px 0 0
+
+          a
+
+  .bottom
+    +clearfix
+    background: #E7F3FE
+    padding: 20px 78px
+    position: relative
+
+    .department_logo
+      +clearfix
+      background: image_url('department_logo.png') no-repeat left top
+      display: block
+      float: left
+      padding: 0 0 0 60px
+      height: 54px
+      width: 165px
+
+    .copyright
+      +clearfix
+      background: image_url('bottom_logo.png') no-repeat
+      color: #007cc3
+      font-size: 1.1em
+      left: 42%
+      padding: 30px 0 0 0
+      position: absolute
+      width: 115px
+
+      span
+        +inline-block
+        display: none
+
+    .links
+      +clearfix
+      float: right
+
+      ul
+        li
+          color: #818181
