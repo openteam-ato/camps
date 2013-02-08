@@ -2,6 +2,7 @@
 /.sass-cache
 /bin
 /config/settings.yml
+/config/deploy.yml
 /log/*.log
 /public/assets
 /tmp

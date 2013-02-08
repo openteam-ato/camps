@@ -21,3 +21,7 @@ end
 group :production do
   gem 'unicorn'
 end
+
+group :developmen do
+  gem 'rvm-capistrano'
+end
