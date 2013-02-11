@@ -42,7 +42,7 @@ body
         background: image_url('logo.png') no-repeat
         height: 70px
         text-indent: -9999px
-        width: 298 px
+        width: 298px
 
 .content
   +clearfix
@@ -101,9 +101,13 @@ body
               text-decoration: none
               padding: 8px 15px
 
-              &:hover
+              &:hover, &.selected
                 background: #f4f9ff
                 color: #004770
+
+            li
+              a
+                padding-left: 25px
 
   .right_side
     +clearfix

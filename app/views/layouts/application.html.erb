@@ -29,7 +29,16 @@
               <h3 class='<%= index.odd? ? 'green' : ( index == 2 ? 'blue' : 'yellow' ) %>'><%= hash.title %></h3>
               <ul>
                 <% hash.children.each do |slug, item| %>
-                  <li><%= link_to item.title, item.path %></li>
+                  <li>
+                    <%= link_to item.title, item.path, :class => "#{'selected' if item.selected}" %>
+                    <% if item.has_key?(:children) %>
+                      <ul>
+                        <% item.children.each do |slug, item| %>
+                          <li><%= link_to item.title, item.path, :class => "#{'selected' if item.selected}" %></li>
+                        </ul>
+                      <% end %>
+                    <% end %>
+                  </li>
                 <% end if hash.has_key?(:children)%>
               </ul>
             </li>
@@ -42,34 +51,7 @@
 
       <div class="right_side">
         <div class="main_content">
-          <div class="actual">
-            <h3>Актуальная информация</h3>
-            <ul>
-              <li><a href='#'>Итоги превого посещения оздоровительных организаций</a></li>
-              <li><a href="#">Солнечная фиеста 2012</a></li>
-              <li><a href="#">Cмотр-конкурс на звание «Лучший загородный оздоровительный лагерь Томской области» в 2011 году</a></li>
-              <li><a href="#">Областной смотр-конкурс на звание Лучшая оздоровительная организация Томской области</a></li>
-              <li><a href="#">Информация для родителей</a></li>
-            </ul>
-          </div>
-          <div class="news_list">
-            <h3>Новости</h3>
-            <ul>
-              <li>
-                <div class="date">26 июля 2012 г.</div>
-                <div class="title"><a href='#'>Лучший отрядный вожатый 2012</a></div>
-                <div class="desc">9 июля в томском Информационном центре по атомной энергии состоялся первый этап конкурса «Лучший отрядный вожатый - 2012», в рамках областного Смотра-конкурса на звание «Лучшая детская оздоровительная организация Томской области».</div>
-              </li>
-              <li>
-                <div class="date">26 июля 2012 г.</div>
-                <div class="title"><a href='#'>Лучший отрядный вожатый 2012</a></div>
-                <div class="desc">9 июля в томском Информационном центре по атомной энергии состоялся первый этап конкурса «Лучший отрядный вожатый - 2012», в рамках областного Смотра-конкурса на звание «Лучшая детская оздоровительная организация Томской области».</div>
-              </li>
-            </ul>
-          </div>
-          <div class="chapter">
-            <h3>Название раздела</h3>
-          </div>
+          <%= yield %>
         </div>
       </div>
     </div>
@@ -78,35 +60,7 @@
       <div class="top">
         <div class="useful_links">
           <h4>Полезные ссылки:</h4>
-          <ul>
-            <li>
-              <a href="#">Помощь родителям и детям</a>
-            </li>
-            <li>
-              <a href="#">Все для родителей об их детях</a>
-            </li>
-            <li>
-              <a href="#">Союз детских организаций «Чудо»</a>
-            </li>
-            <li>
-              <a href="#">Полезное для детей и родителей</a>
-            </li>
-            <li>
-              <a href="#">Каталог лагерей, санаториев и баз</a>
-            </li>
-            <li>
-              <a href="#">Сайт для вожатых</a>
-            </li>
-            <li>
-              <a href="#">Детский отдых для родителей</a>
-            </li>
-            <li>
-              <a href="#">Википедия организаторов отдыха</a>
-            </li>
-            <li>
-              <a href="#">Документы Роспотребнадзора РФ</a>
-            </li>
-          </ul>
+          <%= render_partial_for_region @useful_links if @useful_links %>
         </div>
       </div>
 

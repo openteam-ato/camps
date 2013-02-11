@@ -16,6 +16,7 @@ group :default do
   gem 'jquery-rails'
   gem 'openteam-commons'
   gem 'rails'
+  gem 'russian'
 end
 
 group :production do

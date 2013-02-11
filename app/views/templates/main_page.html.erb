@@ -1,16 +1,21 @@
-<% content_for :extend_javascripts do %>
+<% if @actual %>
+  <div class="actual">
+    <h3>Актуальная информация</h3>
+    <%= render_partial_for_region @actual if @actual %>
+  </div>
 <% end %>
 
-<%= content_for :actual_and_calendar do %>
-  <%= render :partial => 'regions/actual' if @actual %>
+<% if @news %>
+  <div class="news_list">
+    <h3>Новости</h3>
+    <ul>
+      <% @news.content['items'].each do |item| %>
+        <li>
+          <div class="date"><%= l Time.zone.parse(item.since), :format => '%d %B %Y', :locale => :ru %></div>
+          <div class="title"><a href='<%= item.link %>'><%= item.title %></a></div>
+          <div class="desc"><%= raw item.annotation %></div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
-
-<% content_for :content do %>
-  <%= render_partial_for_region(@news) if @news %>
-<% end %>
-
-<% content_for :map_region do %>
-  <%= raw @map_region.content.body if @map_region %>
-<% end %>
-
-<%= render :template => 'layouts/application' %>
