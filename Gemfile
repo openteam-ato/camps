@@ -25,4 +25,5 @@ end
 
 group :developmen do
   gem 'rvm-capistrano'
+  gem 'therubyracer'
 end
