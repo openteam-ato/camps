@@ -14,6 +14,7 @@ group :default do
   gem 'esp-commons'
   gem 'hashie'
   gem 'jquery-rails'
+  gem 'kaminari'
   gem 'openteam-commons'
   gem 'rails'
   gem 'russian'

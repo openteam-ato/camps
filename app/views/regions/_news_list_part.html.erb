@@ -1,0 +1,17 @@
+<ul class="news_list">
+  <% @content_first.content['items'].each do |item| %>
+    <li>
+      <div class="date"><%= l Time.zone.parse(item.since), :format => '%d %B %Y', :locale => :ru %></div>
+      <div class="title"><a href='<%= item.link %>'><%= item.title %></a></div>
+      <div class="desc"><%= raw item.annotation %></div>
+    </li>
+  <% end %>
+</ul>
+
+<div class="pagination">
+  <% if object.pagination %>
+    <% @array = object.items %>
+    <% @array = Kaminari.paginate_array(@array, :total_count => object.pagination.total_count).page(object.pagination.current_page).per(object.pagination.per_page) %>
+    <%= paginate @array, :outer_window => 3 %>
+  <% end %>
+</div>

@@ -1,1 +1,6 @@
 ru:
+  views:
+    pagination:
+      next: '&rarr;'
+      previous: '&larr;'
+      truncate: ...

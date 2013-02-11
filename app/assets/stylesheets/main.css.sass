@@ -12,10 +12,16 @@ body
   font-size: 1em
   line-height: 1.62em
 
+.rss
+  +inline-block
+  background: image_url('feed.png') no-repeat
+  height: 24px
+  margin: 0 5px
+  text-indent: -9999px
+  width: 24px
+
 .header
   @include background-image(linear-gradient(#a4cffc, #f4f9ff))
-
-
 
   .sub_wrapper
     background: image_url('header_lbg.png') no-repeat left
@@ -47,6 +53,9 @@ body
 .content
   +clearfix
   padding: 20px 60px
+
+  .pagination
+    text-align: center
 
   .left_side
     +clearfix
@@ -114,7 +123,7 @@ body
     padding: 12px 18px 22px 0
 
     .main_content
-      .actual, .news_list, .chapter
+      .actual, div.news_list, .chapter
         +border-radius(5px)
         background: #ffffff
         border: 1px solid #dce6f2
@@ -149,6 +158,9 @@ body
         li
           margin: 0 0 20px 0
 
+          &:before
+            display: none
+
         .date
           color: #818181
           font-size: 0.8em
@@ -159,6 +171,11 @@ body
         .desc
           font-style: italic
 
+      .chapter
+        p
+          line-height: 1.7em
+          margin: 0 0 10px 0
+          text-align: justify
 
 .footer
   a
