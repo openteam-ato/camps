@@ -191,6 +191,7 @@ DEPENDENCIES
   hashie
   jquery-rails
   kaminari
+  libv8 (~> 3.11.8)
   openteam-commons
   rails
   russian
