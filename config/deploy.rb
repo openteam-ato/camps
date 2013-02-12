@@ -1,8 +1,8 @@
 require "bundler/capistrano"
 require "rvm/capistrano"
+require "delayed/recipes"
 
 load "config/deploy/settings"
-load "config/deploy/assets"
 
 namespace :deploy do
   desc "Copy config files"
