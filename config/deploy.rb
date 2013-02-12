@@ -8,6 +8,7 @@ namespace :deploy do
   desc "Copy config files"
   task :config_app, :roles => :app do
     run "ln -s #{deploy_to}/shared/config/settings.yml #{release_path}/config/settings.yml"
+    run "ln -s #{deploy_to}/shared/config/database.yml #{release_path}/config/database.yml"
   end
 
   desc "Copy unicorn.rb file"
@@ -43,6 +44,7 @@ after "deploy:finalize_update", "deploy:config_app"
 after "deploy", "deploy:copy_unicorn_config"
 after "deploy", "unicorn:reload"
 after "deploy:restart", "deploy:cleanup"
+after "deploy:restart", "delayed_job:restart"
 after "deploy", "deploy:airbrake"
 
 # deploy:rollback

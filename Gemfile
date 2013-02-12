@@ -20,11 +20,11 @@ group :default do
   gem 'rails'
   gem 'recaptcha',              :require => 'recaptcha/rails'
   gem 'russian'
-  gem 'sqlite3'
   gem 'validates_email_format_of'
 end
 
 group :production do
+  gem 'pg'
   gem 'unicorn'
 end
 
