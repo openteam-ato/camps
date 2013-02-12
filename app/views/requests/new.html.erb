@@ -1,8 +1,7 @@
 <div class='chapter'>
   <h3>Задать вопрос</h3>
-  <div class='message'>
+  <div class='flash_message'>
     <%= flash[:notice] %>
-    <%= flash[:recaptcha_error].nil? ? '' : t('recaptcha.errors.verification_failed') %>
   </div>
 
   <%= form_for @request, :url => create_request_path, :method => :post do |f| %>
