@@ -10,7 +10,7 @@ class RequestsController < MainController
   def create
     super
     @request = Request.new(params[:request])
-    if @request.valid? && verify_recaptcha(:model => @request)
+    if ![@request.valid?, verify_recaptcha(:model => @request)].uniq.include?(false)
       @request.send_email
       redirect_to new_request_path, :notice => 'Сообщение отправлено успешно, спасибо за обращение.'
     else

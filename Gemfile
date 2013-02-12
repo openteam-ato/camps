@@ -28,7 +28,8 @@ group :production do
   gem 'unicorn'
 end
 
-group :developmen do
+group :development do
   gem 'rvm-capistrano'
   gem 'therubyracer'
+  gem 'sqlite3'
 end
