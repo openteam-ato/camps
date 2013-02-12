@@ -23,6 +23,6 @@ class Request
   end
 
   def send_email
-    RequestMailer.send_email(self).deliver
+    RequestMailer.delay.send_email(self)
   end
 end

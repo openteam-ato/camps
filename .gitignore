@@ -2,7 +2,9 @@
 /.sass-cache
 /bin
 /config/settings.yml
+/config/database.yml
 /config/deploy.yml
+/db/*.sqlite3
 /log/*.log
 /public/assets
 /tmp

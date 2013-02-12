@@ -10,6 +10,7 @@ end
 
 group :default do
   gem 'curb'
+  gem 'delayed_job_active_record'
   gem 'dynamic_form'
   gem 'esp-commons'
   gem 'hashie'
@@ -19,6 +20,7 @@ group :default do
   gem 'rails'
   gem 'recaptcha',              :require => 'recaptcha/rails'
   gem 'russian'
+  gem 'sqlite3'
   gem 'validates_email_format_of'
 end
 
