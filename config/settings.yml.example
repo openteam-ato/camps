@@ -11,3 +11,16 @@ cms:
 
 storage:
   url:          http://storage.url
+
+mail:
+  address:      host
+  port:         25
+  domain:       domain
+  login:        username
+  password:     password
+  from:         user@host
+  to:           user@host
+
+recaptcha:
+  public:       KEY
+  private:      KEY

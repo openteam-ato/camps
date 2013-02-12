@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    На сайте Детский отдых в Томской области, с помощью формы "Задать вопрос" пользователь
+    <%= @request.fullname %> оставил вопрос:
+
+    <%= @request.message %>
+
+    Для связи с <%= @request.fullname %> используйте электронную почту: <%= @request.email %>
+  </body>
+</html>

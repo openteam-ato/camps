@@ -10,13 +10,16 @@ end
 
 group :default do
   gem 'curb'
+  gem 'dynamic_form'
   gem 'esp-commons'
   gem 'hashie'
   gem 'jquery-rails'
   gem 'kaminari'
   gem 'openteam-commons'
   gem 'rails'
+  gem 'recaptcha',              :require => 'recaptcha/rails'
   gem 'russian'
+  gem 'validates_email_format_of'
 end
 
 group :production do

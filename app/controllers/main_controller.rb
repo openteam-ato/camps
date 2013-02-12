@@ -13,6 +13,16 @@ class MainController < ApplicationController
     render "templates/#{page.template}"
   end
 
+  def show
+    page_regions.each do |region|
+      eval "@#{region} = page.regions.#{region}"
+    end
+
+    @page_title = page.title
+  end
+  alias_method :new, :show
+  alias_method :create, :show
+
   private
     def cms_address
       "#{Settings['cms.url']}/nodes/#{Settings['cms.site_slug']}"

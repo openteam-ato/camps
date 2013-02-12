@@ -255,3 +255,56 @@ body
       ul
         li
           color: #818181
+
+form
+  +clearfix
+
+  .errorExplanation
+    margin: 0 0 10px 0
+
+  .inputs
+    +clearfix
+
+    .input
+      +clearfix
+      margin: 0 0 10px 0
+
+    label
+      color: #818181
+      display: block
+      width: 140px
+
+    input, textarea
+      border: 1px solid #dce6f2
+      color: #515151
+      font-size: 1.3em
+      line-height: 1.4em
+      margin: 0
+      padding: 0 3px
+      width: 400px
+
+    textarea
+      height: 200px
+
+  .recaptcha
+    +clearfix
+    margin: 0 0 10px 40px
+
+  .submit
+    input
+      +border-radius(5px)
+      @include background-image(linear-gradient(#36a9e8, #017cc2))
+      border: 1px solid #dce6f2
+      color: #fdfaff
+      font-size: 1.4em
+      line-height: 1.5em
+      margin: 0 0 0 130px
+      padding: 2px 7px
+      position: relative
+
+      &:hover
+        cursor: pointer
+
+      &:active
+        top: 1px
+        left: 1px
