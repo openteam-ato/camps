@@ -13,13 +13,13 @@ storage:
   url:          http://storage.url
 
 mail:
-  address:      host
-  port:         25
-  domain:       domain
-  login:        username
-  password:     password
-  from:         user@host
-  to:           user@host
+  domain:       example.com
+  login:        user@example
+  password:     SECRET
+  smtp:         smtp.example.com
+  port:         22
+  to:           client@example.com
+  from:         server@example.com
 
 recaptcha:
   public:       KEY
