@@ -13,12 +13,18 @@ module ApplicationHelper
   def render_navigation(hash, exclude_first = false)
     return '' if hash.nil? || hash.empty?
 
-    content_tag :ul do
+    if exclude_first
       hash.map do |key, value|
-        content_tag :li, :class => value['selected'] ? 'selected' : nil do
-          link_to(value['title'], value['path'])+render_navigation(value['children'])
-        end
+        render_navigation(value['children'])
       end.join.html_safe
+    else
+      content_tag :ul do
+        hash.map do |key, value|
+          content_tag :li, :class => value['selected'] ? 'selected' : nil do
+            link_to(value['title'], value['path']) + render_navigation(value['children'])
+          end
+        end.join.html_safe
+      end
     end
   end
 end
