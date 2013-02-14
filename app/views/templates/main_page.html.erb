@@ -1,13 +1,13 @@
 <% if @actual %>
   <div class="actual">
-    <h3>Актуальная информация</h3>
+    <h1>Актуальная информация</h1>
     <%= render_partial_for_region @actual if @actual %>
   </div>
 <% end %>
 
 <% if @news %>
   <div class="news_list">
-    <h3><%= link_to 'Новости', @news.content.collection_link %><%= link_to 'RSS', @news.content.rss_link, :class => 'rss' %></h3>
+    <h1><%= link_to 'Новости', @news.content.collection_link %><%= link_to 'RSS', @news.content.rss_link, :class => 'rss' %></h1>
     <ul>
       <% @news.content['items'].each do |item| %>
         <li>
