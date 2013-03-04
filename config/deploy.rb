@@ -53,5 +53,5 @@ after "deploy:restart", "delayed_job:restart"
 after "deploy", "deploy:airbrake"
 
 # deploy:rollback
-after "deploy", "unicorn:restart"
-after "deploy:restart", "delayed_job:restart"
+after "deploy:rollback", "unicorn:restart"
+after "deploy:rollback", "delayed_job:restart"
