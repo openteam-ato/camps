@@ -17,7 +17,7 @@ group :default do
   gem 'jquery-rails'
   gem 'kaminari'
   gem 'openteam-commons'
-  gem 'rails'
+  gem 'rails', '~> 3.2.12'
   gem 'recaptcha',              :require => 'recaptcha/rails'
   gem 'russian'
   gem 'validates_email_format_of'
@@ -29,6 +29,7 @@ group :production do
 end
 
 group :development do
+  gem 'brakeman'
   gem 'rvm-capistrano'
   gem 'therubyracer'
   gem 'sqlite3'
