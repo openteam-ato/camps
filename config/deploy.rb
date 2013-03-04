@@ -37,6 +37,11 @@ namespace :unicorn do
   task :reload do
     run "/usr/local/etc/rc.d/unicorn reload"
   end
+
+  desc "Restart Unicorn"
+  task :restart do
+    run "/usr/local/etc/rc.d/unicorn restart"
+  end
 end
 
 # deploy
@@ -48,4 +53,5 @@ after "deploy:restart", "delayed_job:restart"
 after "deploy", "deploy:airbrake"
 
 # deploy:rollback
-after "deploy:rollback", "deploy:reload_servers"
+after "deploy", "unicorn:restart"
+after "deploy:restart", "delayed_job:restart"
