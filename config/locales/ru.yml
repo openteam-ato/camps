@@ -1,4 +1,11 @@
 ru:
+  activerecord:
+    attributes:
+      camp:
+        title: Название
+        kind: Тип
+        description: Описание
+
   activemodel:
     attributes:
       request:
@@ -29,4 +36,12 @@ ru:
   recaptcha:
     errors:
       verification_failed: Вы не правильно ввели слова с картинки
+
+  enumerize:
+    camp:
+      kind:
+        day: Дневного пребывания
+        sanatorium: Санаторий
+        country: Загородный
+
 

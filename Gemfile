@@ -12,14 +12,18 @@ group :default do
   gem 'curb'
   gem 'delayed_job_active_record'
   gem 'dynamic_form'
+  gem 'enumerize'
   gem 'esp-commons'
   gem 'hashie'
+  gem 'inherited_resources'
   gem 'jquery-rails'
   gem 'kaminari'
+  gem 'nested_form'
   gem 'openteam-commons'
   gem 'rails', '~> 3.2.12'
   gem 'recaptcha',              :require => 'recaptcha/rails'
   gem 'russian'
+  gem 'simple_form'
   gem 'validates_email_format_of'
 end
 

@@ -1,0 +1,6 @@
+<%= simple_nested_form_for [:manage, @camp] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :kind %>
+  <%= f.input :description %>
+  <%= f.submit 'Сохранить' %>
+<% end %>
