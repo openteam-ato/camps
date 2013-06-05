@@ -1,21 +1,26 @@
 ru:
   activerecord:
     attributes:
+      address:
+        address:  Адрес
+        district: Район
       camp:
-        title: Название
-        kind: Тип
+        title:       Название
+        kind:        Тип
         description: Описание
+        address:     Адрес
+        district:    Район
 
   activemodel:
     attributes:
       request:
-        email: Электронная почта
+        email:    Электронная почта
         fullname: Ф.И.О.
-        message: Сообщение
+        message:  Сообщение
 
     errors:
       messages:
-        blank: не может быть пустым
+        blank:                 не может быть пустым
         invalid_email_address: имеет неверный формат
 
       models:
@@ -29,7 +34,7 @@ ru:
 
   views:
     pagination:
-      next: '&rarr;'
+      next:     '&rarr;'
       previous: '&larr;'
       truncate: ...
 
@@ -38,10 +43,13 @@ ru:
       verification_failed: Вы не правильно ввели слова с картинки
 
   enumerize:
+    address:
+      district:
+        asino: Асино
+        tomsk: Томск
+
     camp:
       kind:
-        day: Дневного пребывания
+        day:        Дневного пребывания
         sanatorium: Санаторий
-        country: Загородный
-
-
+        country:    Загородный

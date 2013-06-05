@@ -2,5 +2,12 @@
   <%= f.input :title %>
   <%= f.input :kind %>
   <%= f.input :description %>
+
+  <% @camp.build_address unless @camp.address %>
+  <%= f.fields_for :address do |address_form| %>
+    <%= address_form.input :address %>
+    <%= address_form.input :district %>
+  <% end %>
+
   <%= f.submit 'Сохранить' %>
 <% end %>

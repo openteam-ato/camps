@@ -4,8 +4,6 @@ class CreateCamps < ActiveRecord::Migration
       t.string :title
       t.string :kind
       t.text :description
-      t.text :address
-      t.string :district
 
       t.timestamps
     end
