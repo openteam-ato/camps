@@ -11,14 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130605031027) do
+ActiveRecord::Schema.define(:version => 20130605042006) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "camp_id"
-    t.text     "address"
+    t.text     "address_line"
     t.string   "district"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   add_index "addresses", ["camp_id"], :name => "index_addresses_on_camp_id"
@@ -46,5 +46,14 @@ ActiveRecord::Schema.define(:version => 20130605031027) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
+  create_table "phones", :force => true do |t|
+    t.string   "number"
+    t.integer  "camp_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "phones", ["camp_id"], :name => "index_phones_on_camp_id"
 
 end

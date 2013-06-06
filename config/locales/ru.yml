@@ -2,14 +2,18 @@ ru:
   activerecord:
     attributes:
       address:
-        address:  Адрес
-        district: Район
+        address_line: Адрес
+        district:     Район
+
       camp:
         title:       Название
         kind:        Тип
         description: Описание
         address:     Адрес
         district:    Район
+
+      phone:
+        number: Телефон
 
   activemodel:
     attributes:

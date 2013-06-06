@@ -5,9 +5,17 @@
 
   <% @camp.build_address unless @camp.address %>
   <%= f.fields_for :address do |address_form| %>
-    <%= address_form.input :address %>
+    <%= address_form.input :address_line %>
     <%= address_form.input :district %>
   <% end %>
 
-  <%= f.submit 'Сохранить' %>
+  <%= f.fields_for :phones do |phone_form| %>
+    <%= phone_form.input :number %>
+    <%= phone_form.link_to_remove 'Удалить' %>
+  <% end %>
+  <%= f.link_to_add 'Добавить телефон', :phones %>
+
+  <div>
+    <%= f.submit 'Сохранить' %>
+  </div>
 <% end %>

@@ -1,1 +1,13 @@
-<h1><%= @camp.title %></h1>
+<p>Название: <%= @camp.title %></p>
+<p>Тип: <%= @camp.kind_text %></p>
+<p>Описание: <%= @camp.description %></p>
+<p>Район: <%= @camp.district.text %></p>
+<p>Адрес: <%= @camp.address_line %></p>
+
+<h1>Телефоны</h1>
+<ul>
+  <% @camp.phones.each do |phone| %>
+    <li><%= phone.number %></li>
+  <% end %>
+</ul>
+
