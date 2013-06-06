@@ -1,19 +1,35 @@
 <%= simple_nested_form_for [:manage, @camp] do |f| %>
-  <%= f.input :title %>
   <%= f.input :kind %>
+  <%= f.input :title %>
   <%= f.input :description %>
 
   <% @camp.build_address unless @camp.address %>
   <%= f.fields_for :address do |address_form| %>
-    <%= address_form.input :address_line %>
     <%= address_form.input :district %>
+    <%= address_form.input :address_line %>
   <% end %>
 
-  <%= f.fields_for :phones do |phone_form| %>
-    <%= phone_form.input :number %>
-    <%= phone_form.link_to_remove 'Удалить' %>
-  <% end %>
-  <%= f.link_to_add 'Добавить телефон', :phones %>
+  <div class='phones'>
+    <h3>Телефоны</h3>
+    <%= f.fields_for :phones do |phone_form| %>
+      <%= phone_form.input :number %>
+      <%= phone_form.link_to_remove 'Удалить', :class => 'remove-phone' %>
+    <% end %>
+    <%= f.link_to_add 'Добавить телефон', :phones %>
+  </div>
+
+  <div class='shifts'>
+    <h3>Смены</h3>
+    <%= f.fields_for :shifts do |shift_form| %>
+      <%= shift_form.input :title %>
+      <%= shift_form.input :price %>
+      <%= shift_form.input :starts_on, :as => :date_picker %>
+      <%= shift_form.input :ends_on, :as => :date_picker %>
+      <%= shift_form.input :age_min %>
+      <%= shift_form.input :age_max %>
+    <% end %>
+    <%= f.link_to_add 'Добавить смену', :shifts %>
+  </div>
 
   <div>
     <%= f.submit 'Сохранить' %>

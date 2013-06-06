@@ -1,5 +1,5 @@
-<p>Название: <%= @camp.title %></p>
 <p>Тип: <%= @camp.kind_text %></p>
+<p>Название: <%= @camp.title %></p>
 <p>Описание: <%= @camp.description %></p>
 <p>Район: <%= @camp.district.text %></p>
 <p>Адрес: <%= @camp.address_line %></p>
@@ -11,3 +11,31 @@
   <% end %>
 </ul>
 
+<h1>Смены</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Название</th>
+      <th>Начало</th>
+      <th>Окончание</th>
+      <th>Минимальный возраст</th>
+      <th>Максимальный возраст</th>
+      <th>Цена</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @camp.shifts.each do |shift| %>
+      <tr>
+        <th><%= shift.title %></th>
+        <th><%= l shift.starts_on %></th>
+        <th><%= l shift.ends_on %></th>
+        <th><%= shift.age_min %></th>
+        <th><%= shift.age_max %></th>
+        <th><%= shift.price %></th>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Редактировать', edit_manage_camp_path(@camp) %>
+<%= link_to 'Список лагерей', manage_camps_path %>

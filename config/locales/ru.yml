@@ -13,7 +13,15 @@ ru:
         district:    Район
 
       phone:
-        number: Телефон
+        number: Номер
+
+      shift:
+        title:     Название
+        starts_on: Начало
+        ends_on:   Окончание
+        price:     Цена
+        age_min:   Минимальный возраст
+        age_max:   Максимальный возраст
 
   activemodel:
     attributes:
