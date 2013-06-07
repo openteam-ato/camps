@@ -5,6 +5,7 @@ class Camp < ActiveRecord::Base
     :address_attributes, :phones_attributes, :shifts_attributes, :links_attributes, :employees_attributes
 
   has_many :employees, :dependent => :destroy
+  has_many :images,    :dependent => :destroy
   has_many :links,     :dependent => :destroy
   has_many :phones,    :dependent => :destroy
   has_many :shifts,    :dependent => :destroy

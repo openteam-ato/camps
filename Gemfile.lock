@@ -65,6 +65,10 @@ GEM
       net-ssh-gateway (>= 1.1.0)
     chronic (0.9.0)
     chunky_png (1.2.7)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.1)
+      climate_control (>= 0.0.3, < 1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -146,6 +150,15 @@ GEM
       rails
       unicorn
       whenever
+    paperclip (3.4.2)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.0)
+      mime-types
+    paperclip-elvfs (0.0.5.2)
+      curb
+      paperclip
     pg (0.14.1)
     polyglot (0.3.3)
     pr_geohash (1.0.0)
@@ -258,6 +271,7 @@ DEPENDENCIES
   kaminari
   nested_form
   openteam-commons
+  paperclip-elvfs
   pg
   rails (~> 3.2.12)
   recaptcha

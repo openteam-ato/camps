@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130607021601) do
+ActiveRecord::Schema.define(:version => 20130607083744) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "camp_id"
@@ -57,6 +57,19 @@ ActiveRecord::Schema.define(:version => 20130607021601) do
   end
 
   add_index "employees", ["camp_id"], :name => "index_employees_on_camp_id"
+
+  create_table "images", :force => true do |t|
+    t.integer  "camp_id"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.text     "file_url"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "images", ["camp_id"], :name => "index_images_on_camp_id"
 
   create_table "links", :force => true do |t|
     t.string   "title"

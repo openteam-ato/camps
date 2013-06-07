@@ -21,6 +21,7 @@ group :default do
   gem 'kaminari'
   gem 'nested_form'
   gem 'openteam-commons'
+  gem 'paperclip-elvfs'
   gem 'rails', '~> 3.2.12'
   gem 'recaptcha',              :require => 'recaptcha/rails'
   gem 'russian'
