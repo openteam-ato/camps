@@ -1,5 +1,25 @@
 <h1>Список лагерей</h1>
 
+<%= form_tag manage_camps_path, :method => :get do %>
+  <%= text_field_tag :q, params[:q] %>
+
+  <div>
+    <% Camp.kind.options.each do |option| %>
+      <%= check_box_tag 'kinds[]', option.last, @kinds.include?(option.last), :id => "kind_#{option.last}" %>
+      <%= label_tag "kind_#{option.last}", option.first %>
+    <% end %>
+  </div>
+
+  <div>
+    <% Address.district.options.each do |option| %>
+      <%= check_box_tag 'districts[]', option.last, @districts.include?(option.last), :id => "district_#{option.last}" %>
+      <%= label_tag "district_#{option.last}", option.first %>
+    <% end %>
+  </div>
+
+  <%= submit_tag 'Найти' %>
+<% end %>
+
 <div class="actions">
   <%= link_to 'Добавить лагерь', new_manage_camp_path %>
 </div>

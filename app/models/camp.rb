@@ -24,6 +24,9 @@ class Camp < ActiveRecord::Base
   delegate :address_line, :district, :to => :address
 
   searchable do
+    string(:districts, :multiple => true) { [district] }
+    string(:kinds, :multiple => true) { [kind] }
 
+    text :title
   end
 end
