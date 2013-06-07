@@ -18,6 +18,17 @@
     <%= f.link_to_add 'Добавить телефон', :phones %>
   </div>
 
+  <div class='employees'>
+    <h3>Работники</h3>
+    <%= f.fields_for :employees do |employee_form| %>
+      <%= employee_form.input :full_name %>
+      <%= employee_form.input :post %>
+      <%= employee_form.input :phone_number %>
+      <%= employee_form.link_to_remove 'Удалить' %>
+    <% end %>
+    <%= f.link_to_add 'Добавить работника', :employees %>
+  </div>
+
   <div class='shifts'>
     <h3>Смены</h3>
     <%= f.fields_for :shifts do |shift_form| %>

@@ -27,6 +27,11 @@ ru:
         age_min:   Минимальный возраст
         age_max:   Максимальный возраст
 
+      employee:
+        full_name:    ФИО
+        post:         Должность
+        phone_number: Телефон
+
   activemodel:
     attributes:
       request:
