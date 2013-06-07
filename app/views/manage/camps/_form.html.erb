@@ -1,36 +1,38 @@
 <%= simple_nested_form_for [:manage, @camp] do |f| %>
-  <%= f.input :kind %>
-  <%= f.input :title %>
-  <%= f.input :description %>
+  <%= f.input :title, :wrapper_html => { :class => 'title' } %>
+  <%= f.input :kind, :include_blank => '--- не выбрано ---', :wrapper_html => { :class => 'kind' } %>
 
-  <% @camp.build_address unless @camp.address %>
-  <%= f.fields_for :address do |address_form| %>
-    <%= address_form.input :district %>
-    <%= address_form.input :address_line %>
-  <% end %>
-
-  <div class='phones'>
-    <h3>Телефоны</h3>
-    <%= f.fields_for :phones do |phone_form| %>
-      <%= phone_form.input :number %>
-      <%= phone_form.link_to_remove 'Удалить', :class => 'remove-phone' %>
+  <div class="address_inputs">
+    <% @camp.build_address unless @camp.address %>
+    <%= f.fields_for :address do |address_form| %>
+      <%= address_form.input :district %>
+      <%= address_form.input :address_line %>
     <% end %>
-    <%= f.link_to_add 'Добавить телефон', :phones %>
   </div>
 
-  <div class='employees'>
-    <h3>Работники</h3>
+  <%= f.input :description, :wrapper_html => { :class => 'description' } %>
+
+  <fieldset class='phones'>
+    <legend>Телефоны (<%= f.link_to_add 'добавить телефон', :phones, :data => { :target => 'fieldset.phones' } %>)</legend>
+    <%= f.fields_for :phones do |phone_form| %>
+      <%= phone_form.input :number, :label => false %>
+      <%= phone_form.link_to_remove 'Удалить', :class => 'remove-phone' %>
+    <% end %>
+
+  </fieldset>
+
+  <fieldset class='employees'>
+    <legend>Работники (<%= f.link_to_add 'добавить работника', :employees, :data => { :target => 'fieldset.employees' } %>)</legend>
     <%= f.fields_for :employees do |employee_form| %>
       <%= employee_form.input :full_name %>
       <%= employee_form.input :post %>
       <%= employee_form.input :phone_number %>
       <%= employee_form.link_to_remove 'Удалить' %>
     <% end %>
-    <%= f.link_to_add 'Добавить работника', :employees %>
-  </div>
+  </fieldset>
 
-  <div class='shifts'>
-    <h3>Смены</h3>
+  <fieldset class='shifts'>
+    <legend>Смены (<%= f.link_to_add 'добавить смену', :shifts, :data => { :target => 'fieldset.shifts' } %>)</legend>
     <%= f.fields_for :shifts do |shift_form| %>
       <%= shift_form.input :title %>
       <%= shift_form.input :price %>
@@ -40,20 +42,19 @@
       <%= shift_form.input :age_max %>
       <%= shift_form.link_to_remove 'Удалить' %>
     <% end %>
-    <%= f.link_to_add 'Добавить смену', :shifts %>
-  </div>
+  </fieldset>
 
-  <div class='links'>
-    <h3>Ссылки</h3>
+  <fieldset class='links'>
+    <legend>Ссылки (<%= f.link_to_add 'добавить ссылку', :links, :data => { :target => 'fieldset.links' } %>)</legend>
     <%= f.fields_for :links do |link_form| %>
       <%= link_form.input :title %>
       <%= link_form.input :url %>
       <%= link_form.link_to_remove 'Удалить' %>
     <% end %>
-    <%= f.link_to_add 'Добавить ссылку', :links %>
-  </div>
+  </fieldset>
 
-  <div>
+  <div class='buttons'>
     <%= f.submit 'Сохранить' %>
+    <%= link_to "Отмена", :back %>
   </div>
 <% end %>

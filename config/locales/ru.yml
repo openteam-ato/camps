@@ -24,8 +24,8 @@ ru:
         starts_on: Начало
         ends_on:   Окончание
         price:     Цена
-        age_min:   Минимальный возраст
-        age_max:   Максимальный возраст
+        age_min:   Мин. возраст
+        age_max:   Макс. возраст
 
       employee:
         full_name:    ФИО

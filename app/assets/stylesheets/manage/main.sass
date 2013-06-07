@@ -34,18 +34,21 @@ a
   padding: 20px
   width: 920px
 
-.actions
+.actions, .buttons
   text-align: right
   padding: 10px 0
 
-  a
+  a, input
     +background-image(linear-gradient(#fff, #ddd))
     +border-radius(4px)
     +inline-block
     +box-shadow(#999 2px 2px 5px)
     border: 1px solid #777
+    font-family: 'PT Sans', sans-serif
     color: #060C39
-    margin: 0 0 0 5px
+    font-size: 14px
+    line-height: 18px
+    margin: 0 0 0 10px
     padding: 3px 7px
     position: relative
     text-decoration: none
@@ -72,3 +75,202 @@ a
     a
       font-size: 16px
       line-height: 20px
+
+form
+  fieldset
+    border: 1px solid #ddd
+    margin: 0 0 15px 0
+    padding: 5px
+
+    legend
+      padding: 0 5px
+      margin: 0 0 0 7px
+
+    &.phones
+      div.input
+        +inline-block
+        margin: 0 5px 5px 0
+
+        input
+          width: 130px
+
+    &.employees
+      div.fields
+        +clearfix
+        margin: 0 0 15px 0
+
+        &:not(:last-child):after
+          background: #aaa
+          content: ""
+          display: block
+          height: 1px
+          width: 910px
+          margin: 35px auto 0
+
+        .camp_employees_full_name
+          input
+            width: 896px
+
+        .camp_employees_post
+          float: left
+          margin: 0 5px 0 0
+
+          input
+            width: 690px
+
+        .camp_employees_phone_number
+          float: left
+          margin: 0 5px 0 0
+
+          input
+            width: 130px
+
+        a
+          +inline-block
+          margin: 30px 0 0 0
+
+    &.shifts
+      div.fields
+        +clearfix
+        margin: 0 0 15px 0
+
+        &:not(:last-child):after
+          background: #aaa
+          content: ""
+          display: block
+          height: 1px
+          width: 910px
+          margin: 35px auto 0
+
+        .camp_shifts_title
+          input
+            width: 896px
+
+        .camp_shifts_price
+          float: left
+          margin: 0 25px 0 0
+
+          input
+            width: 80px
+
+        .camp_shifts_starts_on
+          float: left
+          margin: 0 5px 0 0
+
+          input
+            width: 80px
+
+        .camp_shifts_ends_on
+          float: left
+          margin: 0 25px 0 0
+
+          input
+            width: 80px
+
+        .camp_shifts_age_min
+          float: left
+          margin: 0 5px 0 0
+
+          input
+            width: 40px
+
+        .camp_shifts_age_max
+          float: left
+          margin: 0 25px 0 0
+
+          input
+            width: 40px
+
+        a
+          +inline-block
+          margin: 30px 0 0 0
+
+    &.links
+      +clearfix
+
+      div.fields
+        +clearfix
+        margin: 0 0 15px 0
+
+        &:not(:last-child):after
+          background: #aaa
+          content: ""
+          display: block
+          height: 1px
+          width: 910px
+          margin: 35px auto 0
+
+        .camp_links_title
+          float: left
+          margin: 0 5px 0 0
+
+          input
+            width: 320px
+
+        .camp_links_url
+          float: left
+          margin: 0 5px 0 0
+
+          textarea
+            margin: 2px 0 0 0
+            height: 20px
+            resize: none
+            width: 504px
+
+        a
+          +inline-block
+          margin: 30px 0 0 0
+
+  div.input
+    +clearfix
+    margin: 0 0 15px 0
+
+    label
+      font-size: 14px
+      color: #666
+      display: block
+      margin: 0 0 5px 0
+
+    input, select
+      font-size: 16px
+
+    textarea
+      font-size: 14px
+
+    textarea, input, select
+      padding: 3px 5px
+
+    textarea, input
+      border: 1px solid #aaa
+
+  .title
+    input
+      width: 908px
+
+  .kind
+    float: left
+    margin-right: 15px !important
+
+  .description
+    textarea
+      height: 70px
+      max-width: 908px
+      width: 908px
+
+  .address_inputs
+    .fields
+      +clearfix
+
+    div.input
+      +clearfix
+
+      textarea
+        height: 20px
+        resize: none
+        width: 504px
+
+    div.select, div.text
+      float: left
+
+    div.select
+      margin: 0 15px 0 0
