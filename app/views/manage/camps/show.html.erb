@@ -1,41 +1,35 @@
-<p>Тип: <%= @camp.kind_text %></p>
-<p>Название: <%= @camp.title %></p>
-<p>Описание: <%= @camp.description %></p>
-<p>Район: <%= @camp.district.text %></p>
-<p>Адрес: <%= @camp.address_line %></p>
+<div class="camp_show">
+  <%= link_to '&larr; Список лагерей'.html_safe, manage_camps_path %>
 
-<h1>Телефоны</h1>
-<ul>
-  <% @camp.phones.each do |phone| %>
-    <li><%= phone.number %></li>
-  <% end %>
-</ul>
+  <h1><%= @camp.title %> (<%= @camp.kind_text %>)</h1>
 
-<h1>Смены</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Название</th>
-      <th>Начало</th>
-      <th>Окончание</th>
-      <th>Минимальный возраст</th>
-      <th>Максимальный возраст</th>
-      <th>Цена</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @camp.shifts.each do |shift| %>
-      <tr>
-        <th><%= shift.title %></th>
-        <th><%= l shift.starts_on %></th>
-        <th><%= l shift.ends_on %></th>
-        <th><%= shift.age_min %></th>
-        <th><%= shift.age_max %></th>
-        <th><%= shift.price %></th>
-      </tr>
+  <div class="description">
+    <%= simple_format @camp.description %>
+  </div>
+
+  <div class="contacts_info">
+    <p>Район: <%= @camp.district.text %></p>
+    <p>Адрес: <%= @camp.address_line %></p>
+    <p>Тел.: <%= @camp.phones_line %>
+    <% @camp.links.each do |link| %>
+      <p><%= link_to link.title, link.url, :target => '_blank' %></p>
     <% end %>
-  </tbody>
-</table>
+  </div>
 
-<%= link_to 'Редактировать', edit_manage_camp_path(@camp) %>
-<%= link_to 'Список лагерей', manage_camps_path %>
+  <div class="employees">
+    <h3>Сотрудники</h3>
+    <% @camp.employees.each do |employee| %>
+      <p><%= employee %></p>
+    <% end %>
+  </div>
+
+  <div class="seasons">
+    <h3>Смены</h3>
+    <%= render @camp.shifts %>
+  </div>
+
+  <div class="actions">
+    <%= link_to 'Редактировать', edit_manage_camp_path(@camp) %>
+    <%= link_to "Удалить", manage_camps_path(@camp), :method => :delete, :confirm => 'Вы уверены?' %>
+  </div>
+</div>

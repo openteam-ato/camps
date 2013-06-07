@@ -18,7 +18,15 @@
       <%= phone_form.input :number, :label => false %>
       <%= phone_form.link_to_remove 'Удалить', :class => 'remove-phone' %>
     <% end %>
+  </fieldset>
 
+  <fieldset class='links'>
+    <legend>Ссылки (<%= f.link_to_add 'добавить ссылку', :links, :data => { :target => 'fieldset.links' } %>)</legend>
+    <%= f.fields_for :links do |link_form| %>
+      <%= link_form.input :title %>
+      <%= link_form.input :url %>
+      <%= link_form.link_to_remove 'Удалить' %>
+    <% end %>
   </fieldset>
 
   <fieldset class='employees'>
@@ -41,15 +49,6 @@
       <%= shift_form.input :age_min %>
       <%= shift_form.input :age_max %>
       <%= shift_form.link_to_remove 'Удалить' %>
-    <% end %>
-  </fieldset>
-
-  <fieldset class='links'>
-    <legend>Ссылки (<%= f.link_to_add 'добавить ссылку', :links, :data => { :target => 'fieldset.links' } %>)</legend>
-    <%= f.fields_for :links do |link_form| %>
-      <%= link_form.input :title %>
-      <%= link_form.input :url %>
-      <%= link_form.link_to_remove 'Удалить' %>
     <% end %>
   </fieldset>
 
