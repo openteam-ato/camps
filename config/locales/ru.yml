@@ -12,6 +12,10 @@ ru:
         address:     Адрес
         district:    Район
 
+      link:
+        title: Название
+        url:   Адрес
+
       phone:
         number: Номер
 

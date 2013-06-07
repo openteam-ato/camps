@@ -27,8 +27,19 @@
       <%= shift_form.input :ends_on, :as => :date_picker %>
       <%= shift_form.input :age_min %>
       <%= shift_form.input :age_max %>
+      <%= shift_form.link_to_remove 'Удалить' %>
     <% end %>
     <%= f.link_to_add 'Добавить смену', :shifts %>
+  </div>
+
+  <div class='links'>
+    <h3>Ссылки</h3>
+    <%= f.fields_for :links do |link_form| %>
+      <%= link_form.input :title %>
+      <%= link_form.input :url %>
+      <%= link_form.link_to_remove 'Удалить' %>
+    <% end %>
+    <%= f.link_to_add 'Добавить ссылку', :links %>
   </div>
 
   <div>
