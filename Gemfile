@@ -24,6 +24,7 @@ group :default do
   gem 'recaptcha',              :require => 'recaptcha/rails'
   gem 'russian'
   gem 'simple_form'
+  gem 'sunspot_rails'
   gem 'validates_email_format_of'
 end
 
@@ -35,6 +36,7 @@ end
 group :development do
   gem 'brakeman'
   gem 'rvm-capistrano'
-  gem 'therubyracer'
   gem 'sqlite3'
+  gem 'sunspot_solr'
+  gem 'therubyracer'
 end

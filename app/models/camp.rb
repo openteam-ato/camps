@@ -22,4 +22,8 @@ class Camp < ActiveRecord::Base
   enumerize :kind, :in => [:country, :sanatorium, :day]
 
   delegate :address_line, :district, :to => :address
+
+  searchable do
+
+  end
 end
