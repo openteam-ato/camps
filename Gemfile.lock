@@ -251,6 +251,7 @@ DEPENDENCIES
   enumerize
   esp-commons
   execjs
+  has_scope
   hashie
   inherited_resources
   jquery-rails

@@ -3,6 +3,8 @@ class Manage::CampsController < Manage::ApplicationController
 
   actions :all
 
+  has_scope :page, :default => 1
+
   def index
     index! {
       @districts = districts = (params[:districts] || []).delete_if(&:blank?)
@@ -13,6 +15,9 @@ class Manage::CampsController < Manage::ApplicationController
 
         with :districts, districts if districts.any?
         with :kinds, kinds if kinds.any?
+
+        paginate :page => params[:page], :per_page => 10
+
       }.results
     }
   end

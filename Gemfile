@@ -14,6 +14,7 @@ group :default do
   gem 'dynamic_form'
   gem 'enumerize'
   gem 'esp-commons'
+  gem 'has_scope'
   gem 'hashie'
   gem 'inherited_resources'
   gem 'jquery-rails'
