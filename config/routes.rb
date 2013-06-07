@@ -4,6 +4,7 @@ Camps::Application.routes.draw do
 
   namespace :manage do
     resources :camps
+    root :to => 'camps#index'
   end
 
   get '/(*path)', :to => 'main#index'

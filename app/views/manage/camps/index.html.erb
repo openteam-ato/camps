@@ -1,9 +1,13 @@
 <h1>Список лагерей</h1>
-<%= link_to 'Добаить лагерь', new_manage_camp_path %>
-<ul>
-  <% @camps.each do |camp| %>
-    <li>
-      <%= link_to camp.title, manage_camp_path(camp) %>
-    </li>
-  <% end %>
-</ul>
+
+<div class="actions">
+  <%= link_to 'Добавить лагерь', new_manage_camp_path %>
+</div>
+
+<% if collection.any? %>
+  <ul class='list'>
+    <%= render collection %>
+  </ul>
+<% else %>
+  <div class="empty">Нет ни одного лагеря</div>
+<% end %>

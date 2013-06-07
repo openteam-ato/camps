@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title><%= raw @page_title %> | <%= strip_tags(@site_name.content.body) %></title>
     <%= favicon_link_tag %>
-    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= stylesheet_link_tag    "public/application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
