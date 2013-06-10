@@ -1,10 +1,10 @@
 Camps::Application.routes.draw do
 
-  get 'ru/request' => 'requests#new', :as => :new_request
-  post 'ru/request' => 'requests#create', :as => :create_request
-
   scope 'ru' do
-    resources :camps, :only => [:index, :show]
+    get 'request' => 'requests#new', :as => :new_request
+    post 'request' => 'requests#create', :as => :create_request
+    get 'camps'      => 'camps#index', :as => :camps
+    get 'camps/view' => 'camps#show', :as => :camp
   end
 
   namespace :manage do

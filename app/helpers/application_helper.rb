@@ -27,4 +27,8 @@ module ApplicationHelper
       end
     end
   end
+
+  def image_url(url, width, height)
+    url.gsub(/(?!=\/files\/\d+\/)(\d+-\d+.?.?)(?=\/)/, "#{width}-#{height}!")
+  end
 end

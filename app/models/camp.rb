@@ -25,6 +25,7 @@ class Camp < ActiveRecord::Base
   enumerize :kind, :in => [:country, :sanatorium, :day]
 
   delegate :address_line, :district, :to => :address
+  alias_attribute :to_s, :title
 
   searchable do
     date :starts_on_min

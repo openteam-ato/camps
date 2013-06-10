@@ -1,0 +1,42 @@
+<div class="chapter camp">
+  <h1><%= @camp %></h1>
+
+  <div class="description">
+    <%= simple_format @camp.description %>
+  </div>
+
+  <div class="contacts_info">
+    <p>Район: <%= @camp.district.text %></p>
+    <p>Адрес: <%= @camp.address_line %></p>
+    <p>Тел.: <%= @camp.phones_line %>
+    <% @camp.links.each do |link| %>
+      <p>
+        <% if link.url.match(/@/) %>
+          <%= mail_to link.url, link.title %>
+        <% else %>
+          <%= link_to link.title, link.url, :target => '_blank' %>
+        <% end %>
+      </p>
+    <% end %>
+  </div>
+
+  <div class="employees">
+    <h3>Сотрудники</h3>
+    <% @camp.employees.each do |employee| %>
+      <p><%= employee %></p>
+    <% end %>
+  </div>
+
+  <div class="seasons">
+    <h3>Смены</h3>
+    <%= render @camp.shifts %>
+  </div>
+
+  <div class="galleria_wrapper">
+    <h3>Галерея фотографий</h3>
+
+    <div id='galleria'>
+      <%= render @camp.photos %>
+    </div>
+  </div>
+</div>
