@@ -5,7 +5,7 @@
   <div class="address_inputs">
     <% @camp.build_address unless @camp.address %>
     <%= f.fields_for :address do |address_form| %>
-      <%= address_form.input :district %>
+      <%= address_form.input :district, :include_blank => '--- не выбрано ---' %>
       <%= address_form.input :address_line %>
     <% end %>
   </div>
