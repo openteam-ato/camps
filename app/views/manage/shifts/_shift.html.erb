@@ -1,4 +1,6 @@
 <div class="season">
   <h4><%= shift.title %></h4>
-  Смена с <%= l shift.starts_on, :format => :long %> по <%= l shift.ends_on, :format => :long %>, для детей <%= shift.age_min %>&ndash;<%= shift.age_max %> лет, стоимость путевки &mdash;  <%= number_to_currency shift.price %>
+  Смена с <%= l shift.starts_on, :format => :long %> по <%= l shift.ends_on, :format => :long %>,
+  для детей <%= shift.age_min %>&ndash;<%= shift.age_max %> лет,
+  стоимость путевки &mdash;  <%= shift.price_min %> <%= "- #{shift.price_max}" if shift.price_max? %> руб.
 </div>
