@@ -131,6 +131,11 @@ form
           margin: 30px 0 0 0
 
     &.shifts
+      .camp_shifts_price_min, .camp_shifts_price_max, .camp_shifts_starts_on, .camp_shifts_ends_on, .camp_shifts_age_min, .camp_shifts_age_max
+        .error
+          top: -14px
+          left: 0
+
       div.fields
         +clearfix
         margin: 0 0 15px 0
@@ -160,6 +165,7 @@ form
         .camp_shifts_starts_on
           float: left
           margin: 0 5px 0 0
+          width: 125px
 
           input
             width: 80px
@@ -167,6 +173,7 @@ form
         .camp_shifts_ends_on
           float: left
           margin: 0 25px 0 0
+          width: 125px
 
           input
             width: 80px
@@ -174,6 +181,7 @@ form
         .camp_shifts_age_min
           float: left
           margin: 0 5px 0 0
+          width: 125px
 
           input
             width: 40px
@@ -181,6 +189,7 @@ form
         .camp_shifts_age_max
           float: left
           margin: 0 25px 0 0
+          width: 125px
 
           input
             width: 40px
@@ -226,8 +235,21 @@ form
           margin: 30px 0 0 0
 
   div.input
-    +clearfix
     margin: 0 0 15px 0
+    position: relative
+
+    .error
+      color: #960011
+      font-size: 12px
+      position: absolute
+      right: 0
+      top: 0
+      width: 130px
+      z-index: 2
+
+      &:before
+        content: '\2193'
+        margin: 0 3px 0 0
 
     label
       font-size: 14px
