@@ -44,6 +44,29 @@ class Camp < ActiveRecord::Base
     phones.any? ? phones.join(', ') : 'телефон не указан'
   end
 
+  def self.sunspot_search(params)
+    ages = %w[5_9 10_15]
+    periods = %w[june july august]
+
+    age = ages.include?(params[:age]) ? params[:age] : nil
+    period = periods.include?(params[:period]) ? Time.zone.parse(params[:period]) : nil
+
+    search {
+      with :districts, [params[:district]] if params[:district].present?
+      with :kinds, [params[:kind]] if params[:kind].present?
+
+      if age.present?
+        with(:age_min).greater_than_or_equal_to age.split('_').first
+        with(:age_max).less_than_or_equal_to age.split('_').last
+      end
+
+      if period.present?
+        with(:starts_on_min).greater_than_or_equal_to period.beginning_of_month
+        with(:starts_on_min).less_than_or_equal_to period.end_of_month
+      end
+    }
+  end
+
   private
 
   def age_min

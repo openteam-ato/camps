@@ -1,6 +1,6 @@
 class CampsController < MainController
   def index
-    @camps = Camp.search.results
+    @camps = Camp.sunspot_search(params).results
 
     super
   end

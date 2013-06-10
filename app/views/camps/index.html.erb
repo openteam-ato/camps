@@ -1,37 +1,37 @@
 <div class="chapter">
-
   <h1>Реестр лагерей</h1>
+
   <div class="search_wraper">
     <%= form_tag '/ru/camps', :method => :get do %>
       <div>
         <%= label_tag :district, 'Район' %>
-        <%= select_tag :district, options_for_select(Address.district.options) %>
+        <%= select_tag :district, options_for_select(Address.district.options, params[:district]), :include_blank => true %>
       </div>
 
       <div>
         <%= label_tag :kind, 'Тип лагеря' %>
-        <%= select_tag :kind, options_for_select(Camp.kind.options) %>
+        <%= select_tag :kind, options_for_select(Camp.kind.options, params[:kind]), :include_blank => true %>
       </div>
 
       <div>
         <%= label_tag :age, 'Возраст ребенка' %>
-        <%= select_tag :age, options_for_select([['10 - 15 лет', '10_15']]) %>
+        <%= select_tag :age, options_for_select([['10 - 15 лет', '10_15']], params[:age]), :include_blank => true %>
       </div>
 
       <div>
         <%= label_tag :period, 'Время пребывания' %>
-        <%= select_tag :period, options_for_select([['июнь - июль', '06_07']]) %>
+        <%= select_tag :period, options_for_select([['июнь', 'june'], ['июль', 'july'], ['август', 'august']], params[:period]), :include_blank => true %>
       </div>
 
       <div>
         <%= submit_tag 'Найти' %>
       </div>
     <% end %>
-  </div>
-
+  <div>
   <ul class='camps_list'>
     <%= render @camps %>
   </ul>
+
 </div>
 
 <% if @content_first %>
