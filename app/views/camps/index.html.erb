@@ -5,6 +5,32 @@
   </div>
 <% end %>
 
+<%= form_tag '/ru/camps', :method => :get do %>
+  <div>
+    <%= label_tag :district, 'Район' %>
+    <%= select_tag :district, options_for_select(Address.district.options) %>
+  </div>
+
+  <div>
+    <%= label_tag :kind, 'Тип лагеря' %>
+    <%= select_tag :kind, options_for_select(Camp.kind.options) %>
+  </div>
+
+  <div>
+    <%= label_tag :age, 'Возраст ребенка' %>
+    <%= select_tag :age, options_for_select([['10 - 15 лет', '10_15']]) %>
+  </div>
+
+  <div>
+    <%= label_tag :period, 'Время пребывания' %>
+    <%= select_tag :period, options_for_select([['июнь - июль', '06_07']]) %>
+  </div>
+
+  <div>
+    <%= submit_tag 'Найти' %>
+  </div>
+<% end %>
+
 <ul>
   <% @camps.each do |camp| %>
     <li>

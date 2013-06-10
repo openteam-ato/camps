@@ -27,6 +27,12 @@ class Camp < ActiveRecord::Base
   delegate :address_line, :district, :to => :address
 
   searchable do
+    date :starts_on_min
+    date :ends_on_max
+
+    integer :age_min
+    integer :age_max
+
     string(:districts, :multiple => true) { [district] }
     string(:kinds, :multiple => true) { [kind] }
 
@@ -35,5 +41,23 @@ class Camp < ActiveRecord::Base
 
   def phones_line
     phones.any? ? phones.join(', ') : 'телефон не указан'
+  end
+
+  private
+
+  def age_min
+    shifts.pluck(:age_min).min
+  end
+
+  def age_max
+    shifts.pluck(:age_max).max
+  end
+
+  def starts_on_min
+    shifts.pluck(:starts_on).min
+  end
+
+  def ends_on_max
+    shifts.pluck(:ends_on).max
   end
 end
