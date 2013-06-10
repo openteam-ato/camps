@@ -1,0 +1,14 @@
+<% if @content_first %>
+  <div class="chapter">
+    <h1><%= @content_first.part_title %></h1>
+    <%= render_partial_for_region @content_first if @content_first %>
+  </div>
+<% end %>
+
+<ul>
+  <% @camps.each do |camp| %>
+    <li>
+      <%= camp.title %>
+    </li>
+  <% end %>
+</ul>
