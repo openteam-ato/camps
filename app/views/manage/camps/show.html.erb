@@ -12,7 +12,13 @@
     <p>Адрес: <%= @camp.address_line %></p>
     <p>Тел.: <%= @camp.phones_line %>
     <% @camp.links.each do |link| %>
-      <p><%= link_to link.title, link.url, :target => '_blank' %></p>
+      <p>
+        <% if link.url.match(/@/) %>
+          <%= mail_to link.url, link.title %>
+        <% else %>
+          <%= link_to link.title, link.url, :target => '_blank' %>
+        <% end %>
+      </p>
     <% end %>
   </div>
 
@@ -26,6 +32,25 @@
   <div class="seasons">
     <h3>Смены</h3>
     <%= render @camp.shifts %>
+  </div>
+
+  <div class="upload_wrapper">
+    <script id="template-upload" type="text/x-tmpl">
+      <div class="upload">
+        {%=o.name%}
+        <div class="progress"><div class="bar" style="width: 0%"></div></div>
+      </div>
+    </script>
+  </div>
+
+  <div class="photos">
+    <h3>Фотографии</h3>
+    <ul>
+      <%= render @camp.photos %>
+    </ul>
+    <%= simple_form_for @camp.photos.new, :url => manage_camp_photos_path(@camp), :html => { :multipart => true, :class => 'file_upload' } do |f| %>
+      <%= f.input :image, :input_html => { :multiple => true, :name => 'photos[image]' }, :label => false %>
+    <% end %>
   </div>
 
   <div class="actions">

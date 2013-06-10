@@ -3,7 +3,9 @@ Camps::Application.routes.draw do
   post 'ru/request' => 'requests#create', :as => :create_request
 
   namespace :manage do
-    resources :camps
+    resources :camps do
+      resources :photos
+    end
     root :to => 'camps#index'
   end
 

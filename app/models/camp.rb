@@ -7,7 +7,7 @@ class Camp < ActiveRecord::Base
     :address_attributes, :phones_attributes, :shifts_attributes, :links_attributes, :employees_attributes
 
   has_many :employees, :dependent => :destroy, :order => 'created_at ASC'
-  has_many :images,    :dependent => :destroy
+  has_many :photos,    :dependent => :destroy, :order => 'created_at ASC'
   has_many :links,     :dependent => :destroy
   has_many :phones,    :dependent => :destroy
   has_many :shifts,    :dependent => :destroy, :order => 'created_at ASC'

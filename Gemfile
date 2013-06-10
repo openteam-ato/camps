@@ -3,8 +3,10 @@ source 'https://rubygems.org'
 group :assets do
   gem 'coffee-rails'
   gem 'compass-rails'
-  gem 'sass-rails'
   gem 'execjs'
+  gem 'jquery-fileupload-rails'
+  gem 'jquery-rails', '2.0.3'
+  gem 'sass-rails'
   gem 'uglifier'
 end
 
@@ -17,7 +19,6 @@ group :default do
   gem 'has_scope'
   gem 'hashie'
   gem 'inherited_resources'
-  gem 'jquery-rails'
   gem 'kaminari'
   gem 'nested_form'
   gem 'openteam-commons'

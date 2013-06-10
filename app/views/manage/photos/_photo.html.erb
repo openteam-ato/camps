@@ -1,0 +1,4 @@
+<li>
+  <%= image_tag photo.image_url, :width => '100px' %>
+  <%= link_to "удалить", manage_camp_photo_path(@camp, photo), :method => :delete, :remote => true, :class => 'ajax_delete' %>
+</li>
