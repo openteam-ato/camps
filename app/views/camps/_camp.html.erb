@@ -1,3 +1,6 @@
 <li>
+  <%= link_to camp_path(:id => camp.id) do %>
+    <%= image_tag image_url(camp.photos.first.image_url, 80, 80), :alt => camp, :title => camp %>
+  <% end %>
   <%= link_to camp, camp_path(:id => camp.id) %>
 </li>

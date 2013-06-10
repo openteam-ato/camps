@@ -1,36 +1,41 @@
+<div class="chapter">
+
+  <h1>Реестр лагерей</h1>
+  <div class="search_wraper">
+    <%= form_tag '/ru/camps', :method => :get do %>
+      <div>
+        <%= label_tag :district, 'Район' %>
+        <%= select_tag :district, options_for_select(Address.district.options) %>
+      </div>
+
+      <div>
+        <%= label_tag :kind, 'Тип лагеря' %>
+        <%= select_tag :kind, options_for_select(Camp.kind.options) %>
+      </div>
+
+      <div>
+        <%= label_tag :age, 'Возраст ребенка' %>
+        <%= select_tag :age, options_for_select([['10 - 15 лет', '10_15']]) %>
+      </div>
+
+      <div>
+        <%= label_tag :period, 'Время пребывания' %>
+        <%= select_tag :period, options_for_select([['июнь - июль', '06_07']]) %>
+      </div>
+
+      <div>
+        <%= submit_tag 'Найти' %>
+      </div>
+    <% end %>
+  </div>
+
+  <ul class='camps_list'>
+    <%= render @camps %>
+  </ul>
+</div>
+
 <% if @content_first %>
   <div class="chapter">
-    <h1><%= @content_first.part_title %></h1>
     <%= render_partial_for_region @content_first if @content_first %>
   </div>
 <% end %>
-
-<%= form_tag '/ru/camps', :method => :get do %>
-  <div>
-    <%= label_tag :district, 'Район' %>
-    <%= select_tag :district, options_for_select(Address.district.options) %>
-  </div>
-
-  <div>
-    <%= label_tag :kind, 'Тип лагеря' %>
-    <%= select_tag :kind, options_for_select(Camp.kind.options) %>
-  </div>
-
-  <div>
-    <%= label_tag :age, 'Возраст ребенка' %>
-    <%= select_tag :age, options_for_select([['10 - 15 лет', '10_15']]) %>
-  </div>
-
-  <div>
-    <%= label_tag :period, 'Время пребывания' %>
-    <%= select_tag :period, options_for_select([['июнь - июль', '06_07']]) %>
-  </div>
-
-  <div>
-    <%= submit_tag 'Найти' %>
-  </div>
-<% end %>
-
-<ul>
-  <%= render @camps %>
-</ul>

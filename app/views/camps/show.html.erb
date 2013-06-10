@@ -20,23 +20,44 @@
     <% end %>
   </div>
 
-  <div class="employees">
-    <h3>Сотрудники</h3>
-    <% @camp.employees.each do |employee| %>
-      <p><%= employee %></p>
-    <% end %>
-  </div>
-
-  <div class="seasons">
-    <h3>Смены</h3>
-    <%= render @camp.shifts %>
-  </div>
-
-  <div class="galleria_wrapper">
-    <h3>Галерея фотографий</h3>
-
-    <div id='galleria'>
-      <%= render @camp.photos %>
+  <% if @camp.employees.any? %>
+    <div class="employees">
+      <h3>Сотрудники</h3>
+      <% @camp.employees.each do |employee| %>
+        <p><%= employee %></p>
+      <% end %>
     </div>
-  </div>
+  <% end %>
+
+  <% if @camp.shifts.any? %>
+    <div class="seasons">
+      <h3>Смены</h3>
+      <%= render @camp.shifts %>
+    </div>
+  <% end %>
+
+  <% if @camp.photos.any? %>
+    <div class="galleria_wrapper">
+      <h3>Галерея фотографий</h3>
+
+      <div id='galleria'>
+        <%= render @camp.photos %>
+      </div>
+    </div>
+  <% end %>
 </div>
+
+<% if Rails.env.production? %>
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'camps'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+   dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+   })();
+ </script>
+<% end %>
