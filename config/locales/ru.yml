@@ -20,12 +20,13 @@ ru:
         number: Номер
 
       shift:
-        title:     Название
-        starts_on: Начало
-        ends_on:   Окончание
-        price:     Цена
-        age_min:   Мин. возраст
-        age_max:   Макс. возраст
+        title:      Название
+        starts_on:  Начало
+        ends_on:    Окончание
+        price_min:  Мин. цена
+        price_max:  Макс. цена
+        age_min:    Мин. возраст
+        age_max:    Макс. возраст
 
       employee:
         full_name:    ФИО

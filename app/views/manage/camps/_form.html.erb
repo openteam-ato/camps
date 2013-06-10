@@ -43,7 +43,8 @@
     <legend>Смены (<%= f.link_to_add 'добавить смену', :shifts, :data => { :target => 'fieldset.shifts' } %>)</legend>
     <%= f.fields_for :shifts do |shift_form| %>
       <%= shift_form.input :title %>
-      <%= shift_form.input :price %>
+      <%= shift_form.input :price_min %>
+      <%= shift_form.input :price_max %>
       <%= shift_form.input :starts_on, :as => :date_picker %>
       <%= shift_form.input :ends_on, :as => :date_picker %>
       <%= shift_form.input :age_min %>
