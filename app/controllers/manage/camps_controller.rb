@@ -16,6 +16,7 @@ class Manage::CampsController < Manage::ApplicationController
         with :districts, districts if districts.any?
         with :kinds, kinds if kinds.any?
 
+        order_by(:title, :asc)
         paginate :page => params[:page], :per_page => 10
 
       }.results
