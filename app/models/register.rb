@@ -4,4 +4,6 @@ class Register < ActiveRecord::Base
   validates_presence_of :title, :attachment
 
   has_attached_file :attachment, :storage => :elvfs, :elvfs_url => Settings[:storage][:url]
+
+  default_scope order(:id)
 end
