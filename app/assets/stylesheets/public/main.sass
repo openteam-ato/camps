@@ -359,13 +359,92 @@ form
       margin: 0 0 15px 0
 
 .camps_list
+  +clearfix
+  margin: 0 !important
+
   li
+    +clearfix
     border: 1px solid #eee
+    height: 100%
     margin: 10px 0
     padding: 5px
 
     &:before
       display: none
 
+    b
+      font-weight: bold
+
+    div
+      +clearfix
+
+    .to_right
+      float: right
+
+    .title
+      font-size: 16px
+
+    .image
+      float: left
+      margin: 0 10px 0 0
+      text-decoration: none
+
+      img
+        display: block
+
+    span
+      color: #808281
+      display: block
+      text-transform: capitalize
+
+    .costs, .ages, .seasons
+      +inline-block
+      height: 100%
+
+      span
+        color: #555
+        text-transform: none
+
+    .costs, .seasons
+      width: 180px
+
+    .ages, .seasons
+      margin: 0 10px
+
+    .ages
+      width: 90px
+
+    .single
+
+.reports
+  ul
+    margin: 0 !important
+
 .search_wraper
+  +clearfix
   margin: 0 0 15px 0
+
+  div.input
+    float: left
+    margin: 0 20px 0 0
+
+    label
+      display: block
+
+    select
+      background: none
+      border: 1px solid #DCE6F2
+      color: #828282
+      width: 180px
+
+  div.buttons
+    float: right
+    margin: 20px 0 0 0
+
+    input
+      +background-image(linear-gradient(#B3DC20, #8AC805))
+      +border-radius(3px)
+      border: 1px solid #87C502
+      font-size: 14px
+      font-weight: normal
+      padding: 3px 15px

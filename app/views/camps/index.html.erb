@@ -3,28 +3,28 @@
 
   <div class="search_wraper">
     <%= form_tag '/ru/camps', :method => :get do %>
-      <div>
+      <div class='input'>
         <%= label_tag :district, 'Район' %>
-        <%= select_tag :district, options_for_select(Address.district.options, params[:district]), :include_blank => true %>
+        <%= select_tag :district, options_for_select(Address.district.options, params[:district]), :prompt => '--- не выбрано ---' %>
       </div>
 
-      <div>
+      <div class='input'>
         <%= label_tag :kind, 'Тип лагеря' %>
-        <%= select_tag :kind, options_for_select(Camp.kind.options, params[:kind]), :include_blank => true %>
+        <%= select_tag :kind, options_for_select(Camp.kind.options, params[:kind]), :prompt => '--- не выбрано ---' %>
       </div>
 
-      <div>
+      <div class='input'>
         <%= label_tag :age, 'Возраст ребенка' %>
-        <%= select_tag :age, options_for_select([['10 - 15 лет', '10_15']], params[:age]), :include_blank => true %>
+        <%= select_tag :age, options_for_select([['10 - 15 лет', '10_15']], params[:age]), :prompt => '--- не выбрано ---' %>
       </div>
 
-      <div>
+      <div class='input'>
         <%= label_tag :period, 'Время пребывания' %>
-        <%= select_tag :period, options_for_select([['июнь', 'june'], ['июль', 'july'], ['август', 'august']], params[:period]), :include_blank => true %>
+        <%= select_tag :period, options_for_select([['июнь', 'june'], ['июль', 'july'], ['август', 'august']], params[:period]), :prompt => '--- не выбрано ---' %>
       </div>
 
-      <div>
-        <%= submit_tag 'Найти' %>
+      <div class='buttons'>
+        <%= submit_tag 'Искать' %>
       </div>
     <% end %>
   </div>

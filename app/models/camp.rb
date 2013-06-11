@@ -36,6 +36,7 @@ class Camp < ActiveRecord::Base
 
     string(:districts, :multiple => true) { [district] }
     string(:kinds, :multiple => true) { [kind] }
+    string :title
 
     text :title
   end
@@ -64,6 +65,8 @@ class Camp < ActiveRecord::Base
         with(:starts_on_min).greater_than_or_equal_to period.beginning_of_month
         with(:starts_on_min).less_than_or_equal_to period.end_of_month
       end
+
+      order_by(:title, :asc)
     }
   end
 

@@ -1,6 +1,43 @@
 <li>
-  <%= link_to camp_path(:id => camp.id) do %>
-    <%= image_tag image_url(camp.photos.first.image_url, 80, 80), :alt => camp, :title => camp %>
+  <div class="to_right">
+    <div class="seasons">
+      <% camp.shifts.each do |shift| %>
+        <span><b><%= shift.title %>:</b> <%= l shift.starts_on, :format => '%d.%m' %>&nbsp;&ndash;&nbsp;<%= l shift.ends_on, :format => '%d.%m.%Y' %></span>
+      <% end %>
+    </div>
+    <div class="ages">
+      <% if camp.shifts.map(&:age_min).uniq.one? && camp.shifts.map(&:age_max).uniq.one? %>
+        <span class='single'><%= camp.shifts.first.age_min %>&nbsp;&ndash;&nbsp;<%= camp.shifts.first.age_max %> лет</span>
+      <% else %>
+        <% camp.shifts.each do |shift| %>
+          <span><%= shift.age_min %>&nbsp;&ndash;&nbsp;<%= shift.age_max %> лет</span>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="costs">
+      <% if camp.shifts.map(&:price_min).uniq.one? && camp.shifts.map(&:price_max).compact.empty? %>
+        <span class='single'><%= number_to_currency camp.shifts.first.price_min %></span>
+      <% else %>
+        <% camp.shifts.each do |shift| %>
+          <% if shift.price_max? %>
+            <span><%= number_to_currency shift.price_min, :unit => '' %>&nbsp;&ndash;&nbsp;<%= number_to_currency shift.price_max %></span>
+          <% else %>
+            <span><%= number_to_currency shift.price_min %></span>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <%= link_to camp_path(:id => camp.id), :class => 'image' do %>
+    <% if camp.photos.any? %>
+      <%= image_tag image_url(camp.photos.first.image_url, 60, 60), :alt => camp, :title => camp, :width => 60, :height => 60 %>
+    <% else %>
+      <%= image_tag 'stub.png', :alt => camp, :title => camp, :weight => 60, :height => 60 %>
+    <% end %>
   <% end %>
-  <%= link_to camp, camp_path(:id => camp.id) %>
+  <div>
+    <%= link_to camp, camp_path(:id => camp.id), :class => 'title' %>
+    <span><%= camp.kind_text %></span>
+    <span><%= camp.district.text %></span>
+  </div>
 </li>
