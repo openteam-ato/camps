@@ -19,6 +19,10 @@ ru:
       phone:
         number: Номер
 
+      register:
+        attachment: Файл
+        title: Название
+
       shift:
         title:      Название
         starts_on:  Начало

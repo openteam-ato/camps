@@ -1,0 +1,8 @@
+<ul>
+  <% @registers.each do |register| %>
+    <li>
+      <%= link_to register.title, '#' %>
+      (<%= link_to 'Редактировать', edit_manage_register_path(register) %>)
+    </li>
+  <% end %>
+</ul>

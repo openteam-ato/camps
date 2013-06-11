@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130610034402) do
+ActiveRecord::Schema.define(:version => 20130611025320) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "camp_id"
@@ -89,6 +89,17 @@ ActiveRecord::Schema.define(:version => 20130610034402) do
   end
 
   add_index "photos", ["camp_id"], :name => "index_photos_on_camp_id"
+
+  create_table "registers", :force => true do |t|
+    t.string   "title"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+    t.text     "attachment_url"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
 
   create_table "shifts", :force => true do |t|
     t.string   "title"
