@@ -11,8 +11,8 @@
     <div class="main_wrapper">
       <div class="navigation">
         <ul>
-          <li <%= "class='selected'" if controller_name == 'camps' %>><%= link_to 'Управление лагерями', manage_camps_path %></li>
-          <li <%= "class='selected'" if controller_name == 'registers' %>><%= link_to 'Управление реестрами', manage_registers_path %></li>
+          <li <%= "class=selected" if controller_name == 'camps' %>><%= link_to 'Управление лагерями', manage_camps_path %></li>
+          <li <%= "class=selected" if controller_name == 'registers' %>><%= link_to 'Управление реестрами', manage_registers_path %></li>
         </ul>
       </div>
       <%= yield %>

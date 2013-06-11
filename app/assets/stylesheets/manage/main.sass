@@ -260,6 +260,9 @@ form
     input, select
       font-size: 16px
 
+      &.file
+        border: none
+
     textarea
       font-size: 14px
 
@@ -349,3 +352,15 @@ form
     .column
       float: left
       margin: 0 25px 0 0
+
+.navigation
+  ul
+    text-align: center
+
+    li
+      +inline-block
+      margin: 0 5px
+
+      &.selected
+        a
+          font-weight: bold

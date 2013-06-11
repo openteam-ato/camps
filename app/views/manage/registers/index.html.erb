@@ -1,7 +1,8 @@
-<ul>
+<h1>Реестры лагерей</h1>
+<ul class='list'>
   <% @registers.each do |register| %>
     <li>
-      <%= link_to register.title, '#' %>
+      <%= register.title %>
       (<%= link_to 'Редактировать', edit_manage_register_path(register) %>)
     </li>
   <% end %>

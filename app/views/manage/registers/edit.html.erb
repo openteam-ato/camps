@@ -3,10 +3,13 @@
 <%= simple_form_for [:manage, @register] do |f| %>
   <%= f.input :title %>
   <% if @register.attachment_url? %>
+    <%= link_to @register.attachment_file_name, @register.attachment_url %>
     <%= link_to 'Удалить', [:manage, @register], :method => :delete, :confirm => 'Вы уверены?' %>
   <% else %>
     <%= f.input :attachment %>
   <% end %>
-  <%= f.submit 'Сохранить' %>
+  <div class="buttons">
+    <%= f.submit 'Сохранить' %>
+    <%= link_to 'Отмена', manage_registers_path %>
+  </div>
 <% end %>
-<%= link_to 'Отмена', manage_registers_path %>
