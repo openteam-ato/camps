@@ -35,8 +35,15 @@
 
 <% if @content_first %>
   <div class="chapter">
-    <%= render_partial_for_region @content_first if @content_first %>
     <ul>
+      <% if Register.first.attachment_url? %>
+        <li><%= link_to Register.first.title, Register.first.attachment_url %></li>
+      <% end %>
+
+      <% if Register.last.attachment_url? %>
+        <li><%= link_to Register.last.title, Register.last.attachment_url %></li>
+      <% end %>
+
       <li><%= link_to "Текущий реестр лагерей", register_path %></li>
     </ul>
   </div>
