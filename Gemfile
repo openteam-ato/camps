@@ -23,6 +23,7 @@ group :default do
   gem 'nested_form'
   gem 'openteam-commons'
   gem 'paperclip-elvfs'
+  gem 'prawn'
   gem 'progress_bar'
   gem 'rails', '~> 3.2.12'
   gem 'recaptcha',              :require => 'recaptcha/rails'
@@ -39,6 +40,7 @@ end
 
 group :development do
   gem 'brakeman'
+  gem 'rails-erd'
   gem 'rvm-capistrano'
   gem 'sqlite3'
   gem 'sunspot_solr'

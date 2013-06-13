@@ -29,4 +29,11 @@ class Address < ActiveRecord::Base
     :chainskij,
     :shegarskij
   ]
+
+  def to_s
+    [].tap do |s|
+      s << district_text
+      s << address_line
+    end.join(', ')
+  end
 end

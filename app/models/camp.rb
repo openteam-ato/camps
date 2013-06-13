@@ -8,7 +8,7 @@ class Camp < ActiveRecord::Base
 
   has_many :employees, :dependent => :destroy, :order => 'created_at ASC'
   has_many :photos,    :dependent => :destroy, :order => 'created_at ASC'
-  has_many :links,     :dependent => :destroy
+  has_many :links,     :dependent => :destroy, :order => 'created_at ASC'
   has_many :phones,    :dependent => :destroy
   has_many :shifts,    :dependent => :destroy, :order => 'created_at ASC'
 
@@ -22,7 +22,7 @@ class Camp < ActiveRecord::Base
 
   validates_presence_of :title, :kind
 
-  enumerize :kind, :in => [:country, :sanatorium, :day]
+  enumerize :kind, :in => [:country, :sanatorium, :day], :scope => true
 
   delegate :address_line, :district, :to => :address
   alias_attribute :to_s, :title
@@ -87,4 +87,5 @@ class Camp < ActiveRecord::Base
   def ends_on_max
     shifts.pluck(:ends_on).max
   end
+
 end

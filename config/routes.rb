@@ -5,6 +5,7 @@ Camps::Application.routes.draw do
 
     get 'camps'      => 'camps#index', :as => :camps
     get 'camps/view' => 'camps#show', :as => :camp
+    get 'camps/register' => 'camps#register', :as => :register
   end
 
   namespace :manage do

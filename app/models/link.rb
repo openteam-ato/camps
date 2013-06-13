@@ -4,4 +4,8 @@ class Link < ActiveRecord::Base
   belongs_to :camp
 
   validates_presence_of :title, :url
+
+  def email?
+    url.match('@')
+  end
 end

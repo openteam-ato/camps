@@ -1,4 +1,9 @@
 ru:
+  kinds:
+    day:        Лагеря дневного пребывания
+    sanatorium: Санатории
+    country:    Загородные лагеря
+
   activerecord:
     attributes:
       address:
@@ -95,6 +100,6 @@ ru:
 
     camp:
       kind:
-        day:        дневного пребывания
+        day:        лагерь дневного пребывания
         sanatorium: санаторий
-        country:    загородный
+        country:    загородный лагерь
