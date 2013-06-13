@@ -38,13 +38,19 @@ class CampsController < MainController
         pdf.move_down(10)
 
         if camp.photos.any?
-          height_box = 0
+          height_image_box = 0
+          height_desc_box = 0
           pdf.bounding_box([0, pdf.cursor], :width => 200) do
             pdf.image(open(camp.photos.first.image_url), :position => :left, :fit => [200, 200])
-            height_box = pdf.bounds.height
+            height_image_box = pdf.bounds.height
           end
-          pdf.bounding_box([210, pdf.cursor + height_box], :width => 280, :height => height_box) do
+          pdf.bounding_box([210, pdf.cursor + height_image_box], :width => 280) do
             pdf.text(camp.description, :size => 10, :leading => 3)
+            height_desc_box = pdf.bounds.height
+          end
+          delta = height_desc_box - height_image_box
+          if delta < 0
+            pdf.move_down(delta.abs)
           end
         else
           pdf.text(camp.description, :size => 10, :leading => 3)
