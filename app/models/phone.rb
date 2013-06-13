@@ -6,5 +6,4 @@ class Phone < ActiveRecord::Base
   validates_presence_of :number
 
   alias_attribute :to_s, :number
-
 end

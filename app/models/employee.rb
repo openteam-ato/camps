@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Employee < ActiveRecord::Base
   attr_accessible :full_name, :phone_number, :post
 
