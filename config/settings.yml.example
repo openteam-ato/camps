@@ -12,6 +12,9 @@ cms:
 storage:
   url:          http://storage.url
 
+solr:
+  url:          http://localhost:8982/solr
+
 mail:
   domain:       example.com
   login:        user@example

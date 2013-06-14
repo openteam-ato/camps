@@ -40,8 +40,9 @@ end
 
 group :development do
   gem 'brakeman'
+  gem 'capistrano-unicorn',  :git => 'git://github.com/sosedoff/capistrano-unicorn'
+  gem 'openteam-capistrano'
   gem 'rails-erd'
-  gem 'rvm-capistrano'
   gem 'sqlite3'
   gem 'sunspot_solr'
   gem 'therubyracer'
