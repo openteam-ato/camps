@@ -21,7 +21,7 @@ class CampsController < MainController
     pdf = Prawn::Document.new
     pdf.font_families.update(
       'Verdana' => {
-        :normal => '/Library/Fonts/Verdana.ttf'
+        :normal => "#{Rails.root}/lib/fonts/Verdana.ttf"
       }
     )
     pdf.font 'Verdana', :size => 8
