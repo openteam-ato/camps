@@ -1,28 +1,28 @@
 <li>
   <div class="to_right">
     <div class="seasons">
-      <% camp.shifts.each do |shift| %>
-        <span><b><%= shift.title %>:</b> <%= l shift.starts_on, :format => '%d.%m' %>&nbsp;&ndash;&nbsp;<%= l shift.ends_on, :format => '%d.%m.%Y' %></span>
+      <% camp.seasons.each do |season| %>
+        <span><b><%= season.title %>:</b> <%= l season.starts_on, :format => '%d.%m' %>&nbsp;&ndash;&nbsp;<%= l season.ends_on, :format => '%d.%m.%Y' %></span>
       <% end %>
     </div>
     <div class="ages">
-      <% if camp.shifts.map(&:age_min).uniq.one? && camp.shifts.map(&:age_max).uniq.one? %>
-        <span class='single'><%= camp.shifts.first.age_min %>&nbsp;&ndash;&nbsp;<%= camp.shifts.first.age_max %> лет</span>
+      <% if camp.seasons.map(&:age_min).uniq.one? && camp.seasons.map(&:age_max).uniq.one? %>
+        <span class='single'><%= camp.seasons.first.age_min %>&nbsp;&ndash;&nbsp;<%= camp.seasons.first.age_max %> лет</span>
       <% else %>
-        <% camp.shifts.each do |shift| %>
-          <span><%= shift.age_min %>&nbsp;&ndash;&nbsp;<%= shift.age_max %> лет</span>
+        <% camp.seasons.each do |season| %>
+          <span><%= season.age_min %>&nbsp;&ndash;&nbsp;<%= season.age_max %> лет</span>
         <% end %>
       <% end %>
     </div>
     <div class="costs">
-      <% if camp.shifts.map(&:price_min).uniq.one? && camp.shifts.map(&:price_max).compact.empty? %>
-        <span class='single'><%= number_to_currency camp.shifts.first.price_min %></span>
+      <% if camp.seasons.map(&:price_min).uniq.one? && camp.seasons.map(&:price_max).compact.empty? %>
+        <span class='single'><%= number_to_currency camp.seasons.first.price_min %></span>
       <% else %>
-        <% camp.shifts.each do |shift| %>
-          <% if shift.price_max? %>
-            <span><%= number_to_currency shift.price_min, :unit => '' %>&nbsp;&ndash;&nbsp;<%= number_to_currency shift.price_max %></span>
+        <% camp.seasons.each do |season| %>
+          <% if season.price_max? %>
+            <span><%= number_to_currency season.price_min, :unit => '' %>&nbsp;&ndash;&nbsp;<%= number_to_currency season.price_max %></span>
           <% else %>
-            <span><%= number_to_currency shift.price_min %></span>
+            <span><%= number_to_currency season.price_min %></span>
           <% end %>
         <% end %>
       <% end %>

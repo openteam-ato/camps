@@ -28,7 +28,7 @@ ru:
         attachment: Файл
         title: Название
 
-      shift:
+      season:
         title:      Название
         starts_on:  Начало
         ends_on:    Окончание

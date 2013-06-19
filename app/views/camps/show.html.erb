@@ -29,10 +29,10 @@
     </div>
   <% end %>
 
-  <% if @camp.shifts.any? %>
+  <% if @camp.seasons.any? %>
     <div class="seasons">
       <h3>Смены</h3>
-      <%= render @camp.shifts %>
+      <%= render @camp.seasons %>
     </div>
   <% end %>
 

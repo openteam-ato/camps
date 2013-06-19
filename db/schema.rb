@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130611025320) do
+ActiveRecord::Schema.define(:version => 20130619093037) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "camp_id"
@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(:version => 20130611025320) do
     t.datetime "updated_at",              :null => false
   end
 
-  create_table "shifts", :force => true do |t|
+  create_table "seasons", :force => true do |t|
     t.string   "title"
     t.date     "starts_on"
     t.date     "ends_on"
@@ -114,6 +114,6 @@ ActiveRecord::Schema.define(:version => 20130611025320) do
     t.integer  "price_max"
   end
 
-  add_index "shifts", ["camp_id"], :name => "index_shifts_on_camp_id"
+  add_index "seasons", ["camp_id"], :name => "index_shifts_on_camp_id"
 
 end

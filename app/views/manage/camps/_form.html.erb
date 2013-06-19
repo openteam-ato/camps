@@ -39,17 +39,17 @@
     <% end %>
   </fieldset>
 
-  <fieldset class='shifts'>
-    <legend>Смены (<%= f.link_to_add 'добавить смену', :shifts, :data => { :target => 'fieldset.shifts' } %>)</legend>
-    <%= f.fields_for :shifts do |shift_form| %>
-      <%= shift_form.input :title %>
-      <%= shift_form.input :price_min %>
-      <%= shift_form.input :price_max %>
-      <%= shift_form.input :starts_on, :as => :date_picker %>
-      <%= shift_form.input :ends_on, :as => :date_picker %>
-      <%= shift_form.input :age_min %>
-      <%= shift_form.input :age_max %>
-      <%= shift_form.link_to_remove 'Удалить' %>
+  <fieldset class='seasons'>
+    <legend>Смены (<%= f.link_to_add 'добавить смену', :seasons, :data => { :target => 'fieldset.seasons' } %>)</legend>
+    <%= f.fields_for :seasons do |season_form| %>
+      <%= season_form.input :title %>
+      <%= season_form.input :price_min %>
+      <%= season_form.input :price_max %>
+      <%= season_form.input :starts_on, :as => :date_picker %>
+      <%= season_form.input :ends_on, :as => :date_picker %>
+      <%= season_form.input :age_min %>
+      <%= season_form.input :age_max %>
+      <%= season_form.link_to_remove 'Удалить' %>
     <% end %>
   </fieldset>
 

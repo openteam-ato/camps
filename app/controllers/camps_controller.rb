@@ -75,10 +75,10 @@ class CampsController < MainController
           end
           pdf.move_down(5)
         end
-        if camp.shifts.any?
+        if camp.seasons.any?
           pdf.text('Смены', :size => 10)
           pdf.move_down(10)
-          camp.shifts.each do |season|
+          camp.seasons.each do |season|
             pdf.text(season.title)
             pdf.move_down(5)
             pdf.text("Смена с #{I18n.l(season.starts_on, :format => :long)} по #{I18n.l(season.ends_on, :format => :long)}, для детей #{season.age_min}–#{season.age_max} лет, стоимость путевки — #{season.price_max? ? "#{number_to_currency(season.price_min, :unit => '')}– #{number_to_currency(season.price_max)}" : number_to_currency(season.price_min)}")

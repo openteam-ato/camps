@@ -1,0 +1,11 @@
+<div class="season">
+  <h4><%= season.title %></h4>
+  Смена с <%= l season.starts_on, :format => :long %> по <%= l season.ends_on, :format => :long %>,
+  для детей <%= season.age_min %>&ndash;<%= season.age_max %> лет,
+  стоимость путевки &mdash;
+  <% if season.price_max? %>
+    <%= number_to_currency season.price_min, :unit => '' %>&nbsp;&ndash;&nbsp;<%= number_to_currency season.price_max %>
+  <% else %>
+    <%= number_to_currency season.price_min %>
+  <% end %>
+</div>
