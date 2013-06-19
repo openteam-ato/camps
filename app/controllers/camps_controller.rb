@@ -86,6 +86,7 @@ class CampsController < MainController
           end
           pdf.move_down(10)
         end
+        pdf.start_new_page
       end
       pdf.start_new_page unless kind == Camp.kind.values.last
     end
