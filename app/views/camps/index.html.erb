@@ -29,10 +29,13 @@
     <% end %>
   </div>
 
-  <ul class='sortings'>
-    <li><%= link_to 'По началу смены', camps_path(Camp.query.merge!(:order_by => 'starts_on')) %></li>
-    <li><%= link_to 'По стоимости', camps_path(Camp.query.merge!(:order_by => 'price')) %></li>
-  </ul>
+  <div>
+    Сортировка:
+    <ul class='sortings'>
+      <li><%= link_to 'По началу смены', camps_path(Camp.query.merge!(:order_by => 'starts_on')) %></li>
+      <li><%= link_to 'По стоимости', camps_path(Camp.query.merge!(:order_by => 'price')) %></li>
+    </ul>
+  </div>
 
   <ul class='camps_list'>
     <%= render @camps %>
