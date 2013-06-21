@@ -7,7 +7,7 @@ html
   font-size: 12px
 
 body
-  +min-width(960px)
+  +min-width(1200px)
   background: #f4f9ff
   font-family: 'Trebuchet MS', Verdana, Tahoma, sans-serif
   font-size: 1em
@@ -437,6 +437,32 @@ form
   +clearfix
   margin: 0 0 15px 0
 
+  div.wrapper_sort
+    float: left
+    line-height: 20px
+    height: 20px
+    margin: 20px 0
+    width: 300px
+
+    ul
+      margin: 0 !important
+
+      li
+        +inline-block
+        float: none
+        line-height: 20px
+        height: 20px
+        margin: 0 5px 0 0
+
+        &.active
+          font-weight: bold
+
+          a
+            text-decoration: none
+
+            &:hover
+              cursor: default
+
   div.input
     float: left
     margin: 0 20px 0 0
@@ -448,7 +474,7 @@ form
       background: none
       border: 1px solid #DCE6F2
       color: #828282
-      width: 180px
+      width: 179px
 
   div.buttons
     float: right

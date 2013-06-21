@@ -53,7 +53,7 @@ class Camp < ActiveRecord::Base
   end
 
   def self.sunspot_search(params)
-    @params = params
+    @params = params.dup
     ages = %w[5_9 10_15]
     periods = %w[june july august]
 

@@ -23,18 +23,18 @@
         <%= select_tag :period, options_for_select([['июнь', 'june'], ['июль', 'july'], ['август', 'august']], params[:period]), :prompt => '--- не выбрано ---' %>
       </div>
 
+      <div class='wrapper_sort'>
+        Сортировка:
+        <ul class='sortings'>
+          <li class='<%= params[:order_by] && params[:order_by] == 'starts_on' ? 'active' : 'not_active' %>'><%= link_to 'По началу смены', camps_path(Camp.query.merge!(:order_by => 'starts_on')) %></li>
+          <li class='<%= params[:order_by] && params[:order_by] == 'price' ? 'active' : 'not_active' %>'><%= link_to 'По стоимости', camps_path(Camp.query.merge!(:order_by => 'price')) %></li>
+        </ul>
+      </div>
+
       <div class='buttons'>
         <%= submit_tag 'Искать' %>
       </div>
     <% end %>
-  </div>
-
-  <div>
-    Сортировка:
-    <ul class='sortings'>
-      <li><%= link_to 'По началу смены', camps_path(Camp.query.merge!(:order_by => 'starts_on')) %></li>
-      <li><%= link_to 'По стоимости', camps_path(Camp.query.merge!(:order_by => 'price')) %></li>
-    </ul>
   </div>
 
   <ul class='camps_list'>
