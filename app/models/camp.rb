@@ -33,6 +33,7 @@ class Camp < ActiveRecord::Base
 
     integer :age_min
     integer :age_max
+    integer :price_min
 
     string(:districts, :multiple => true) { [district] }
     string(:kinds, :multiple => true) { [kind] }
@@ -45,7 +46,14 @@ class Camp < ActiveRecord::Base
     phones.any? ? phones.join(', ') : 'телефон не указан'
   end
 
+  def self.query
+    @params.delete :commit
+
+    @params
+  end
+
   def self.sunspot_search(params)
+    @params = params
     ages = %w[5_9 10_15]
     periods = %w[june july august]
 
@@ -66,7 +74,15 @@ class Camp < ActiveRecord::Base
         with(:starts_on_min).less_than_or_equal_to period.end_of_month
       end
 
-      order_by :title, :asc
+      case params[:order_by]
+      when 'starts_on'
+        order_by :starts_on_min, :asc
+      when 'price'
+        order_by :price_min, :asc
+      else
+        order_by :title, :asc
+      end
+
       paginate :page => params[:page] || 1, :per_page => 10
     }
   end
@@ -89,4 +105,7 @@ class Camp < ActiveRecord::Base
     seasons.pluck(:ends_on).max
   end
 
+  def price_min
+    seasons.pluck(:price_min).min
+  end
 end

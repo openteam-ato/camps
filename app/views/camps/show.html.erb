@@ -12,9 +12,10 @@
     <% @camp.links.each do |link| %>
       <p>
         <% if link.url.match(/@/) %>
-          <%= mail_to link.url, link.title %>
+          <%= link.title.mb_chars.capitalize %>: <%= mail_to link.url, link.title %>
         <% else %>
-          <%= link_to link.title, link.url, :target => '_blank' %>
+          <%= link.title.mb_chars.capitalize %>:
+          <%= link_to link.url, link.url, :target => '_blank' %>
         <% end %>
       </p>
     <% end %>

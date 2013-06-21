@@ -2,7 +2,7 @@
   <h1>Реестр лагерей</h1>
 
   <div class="search_wraper">
-    <%= form_tag '/ru/camps', :method => :get do %>
+    <%= form_tag camps_path, :method => :get do %>
       <div class='input'>
         <%= label_tag :district, 'Район' %>
         <%= select_tag :district, options_for_select(Address.district.options, params[:district]), :prompt => '--- не выбрано ---' %>
@@ -28,6 +28,11 @@
       </div>
     <% end %>
   </div>
+
+  <ul class='sortings'>
+    <li><%= link_to 'По началу смены', camps_path(Camp.query.merge!(:order_by => 'starts_on')) %></li>
+    <li><%= link_to 'По стоимости', camps_path(Camp.query.merge!(:order_by => 'price')) %></li>
+  </ul>
 
   <ul class='camps_list'>
     <%= render @camps %>
