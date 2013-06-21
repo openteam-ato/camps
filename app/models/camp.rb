@@ -66,7 +66,8 @@ class Camp < ActiveRecord::Base
         with(:starts_on_min).less_than_or_equal_to period.end_of_month
       end
 
-      order_by(:title, :asc)
+      order_by :title, :asc
+      paginate :page => params[:page] || 1, :per_page => 10
     }
   end
 

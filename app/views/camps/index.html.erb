@@ -28,9 +28,12 @@
       </div>
     <% end %>
   </div>
+
   <ul class='camps_list'>
     <%= render @camps %>
   </ul>
+
+  <%= paginate @camps %>
 </div>
 
 <% if @content_first %>
