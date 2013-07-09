@@ -24,7 +24,7 @@ class Camp < ActiveRecord::Base
 
   # TODO: выпилить на лето загородные лагеря
   #enumerize :kind, :in => [:country, :sanatorium, :day, :encampment], :scope => true
-  enumerize :kind, :in => [:sanatorium, :day, :encampment], :scope => true
+  enumerize :kind, :in => [:country, :sanatorium, :encampment], :scope => true
 
   delegate :address_line, :district, :to => :address
   alias_attribute :to_s, :title
@@ -77,7 +77,7 @@ class Camp < ActiveRecord::Base
       end
 
       # TODO: выпилить на лето загородные лагеря
-      without :kinds, :country
+      without :kinds, :day
 
       case params[:order_by]
       when 'starts_on'
