@@ -22,7 +22,9 @@ class Camp < ActiveRecord::Base
 
   validates_presence_of :title, :kind
 
-  enumerize :kind, :in => [:country, :sanatorium, :day], :scope => true
+  # TODO: выпилить на лето загородные лагеря
+  #enumerize :kind, :in => [:country, :sanatorium, :day, :encampment], :scope => true
+  enumerize :kind, :in => [:sanatorium, :day, :encampment], :scope => true
 
   delegate :address_line, :district, :to => :address
   alias_attribute :to_s, :title
@@ -73,6 +75,9 @@ class Camp < ActiveRecord::Base
         with(:starts_on_min).greater_than_or_equal_to period.beginning_of_month
         with(:starts_on_min).less_than_or_equal_to period.end_of_month
       end
+
+      # TODO: выпилить на лето загородные лагеря
+      without :kinds, :country
 
       case params[:order_by]
       when 'starts_on'

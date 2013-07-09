@@ -422,8 +422,14 @@ form
 
 .sortings
   +clearfix
-  display: inline-block
-  list-style-type: none
+
+  span
+    float: left
+    margin: 0 3px 0 0
+
+  ul
+    +clearfix
+    margin: 0 !important
 
   li
     float: left
