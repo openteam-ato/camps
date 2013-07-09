@@ -50,6 +50,7 @@ class Camp < ActiveRecord::Base
 
   def self.query
     @params.delete :commit
+    @params.delete :page
 
     @params
   end
