@@ -1,6 +1,13 @@
 <%= l Time.zone.parse(@content_first.content.since), :format => '%d %B %Y' %>
 <%= simple_format @content_first.content.annotation %>
 <%= simple_format @content_first.content.body %>
-<% @content_first.content.images.each do |image| %>
-  <%= image_tag image.url, :alt => image.description, :title => image.description, :width => image.width, :height => image.height %>
+<% if @content_first.content.images.any? %>
+  <div class="galleria_wrapper">
+    <h3>Галерея фотографий</h3>
+    <div id='galleria'>
+      <% @content_first.content.images.each do |image| %>
+        <%= link_to image_tag(image_url(image.url, 200, 128), :alt => image.description), image_url(image.url, 1050, 700) %>
+      <% end %>
+    </div>
+  </div>
 <% end %>
