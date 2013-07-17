@@ -1,6 +1,6 @@
 <%= l Time.zone.parse(@content_first.content.since), :format => '%d %B %Y' %>
 <%= simple_format @content_first.content.annotation %>
-<%= simple_format @content_first.content.body %>
+<%= raw @content_first.content.body %>
 <% if @content_first.content.images.any? %>
   <div class="galleria_wrapper">
     <h3>Галерея фотографий</h3>
